@@ -1,0 +1,36 @@
+Arguments: 
+  /home/alexandre.odoni/.nvm/versions/node/v12.8.1/bin/node /usr/share/yarn/bin/yarn.js init
+
+PATH: 
+  /home/alexandre.odoni/.nvm/versions/node/v12.8.1/bin:/home/alexandre.odoni/bin:/home/alexandre.odoni/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/alexandre.odoni/Android/Sdk/tools:/home/alexandre.odoni/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.8.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/usr/share/yarn/lib/cli.js:136724:13)
+      at Interface.emit (events.js:203:13)
+      at Interface._ttyWrite (readline.js:880:16)
+      at ReadStream.onkeypress (readline.js:191:10)
+      at ReadStream.emit (events.js:203:13)
+      at emitKeys (internal/readline/utils.js:414:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1146:36)
+      at ReadStream.emit (events.js:203:13)
+      at addChunk (_stream_readable.js:295:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
