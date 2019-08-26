@@ -1,56 +1,56 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
+about: Crie um report de erro para nos ajudar a melhorar
+title: ""
 labels: bug
-assignees: ''
+assignees: ""
 ---
 
-<!-- Verify first that your issue is not already reported -->
+<!-- Verifique primeiro se seu problema ainda não foi relatado -->
 
-<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks! -->
+<!-- Use este modelo ao relatar um erro e forneça o máximo de informações possível. Não fazer isso pode resultar em seu bug não ser resolvido em tempo hábil. Obrigado! -->
 
-<!-- If possible complete *all* sections as described. Don't remove any section. -->
+<!-- Se possível, complete * todas * as seções, conforme descrito. Não remova nenhuma seção. -->
 
-**Description of bug**
+**Descrição do bug**
 
-<!-- A clear and concise description of what the bug is. -->
+<!-- Uma descrição clara e concisa do bug. -->
 
-**To Reproduce**
+**Para Reproduzir**
 
 <!--
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Etapas para reproduzir o comportamento:
+1. Vá para '...'
+2. Clique em '....'
+3. Role para baixo até '....'
+4. Ver erro
 -->
 
-**Expected behavior**
+**Comportamento esperado**
 
-<!-- A clear and concise description of what you expected to happen. -->
+<!-- Uma descrição clara e concisa do que você esperava que acontecesse. -->
 
-**Exception or Error**
+**Exceção ou erro**
 
 <pre><code>
-<!-- If the issue is accompanied by an exception or an error, please share it below: -->
+<!-- Se o problema for acompanhado de uma exceção ou erro, compartilhe-o abaixo: -->
 <!-- ✍️-->
 </code></pre>
 
 **Screenshots**
 
-<!-- If applicable, add screenshots to help explain your problem. -->
+<!-- Se aplicável, adicione capturas de tela para ajudar a explicar seu problema. -->
 
-**Environment:**
+**Ambiente:**
 
 <!--
- Add information about your environment
- - OS: [e.g. iOS, Ubuntu]
- - Browser [e.g. Chrome (69.0.3472.3), Firefox (62.0.3)]
- - Node [e.g 8.9.1]
- - Etc
+ Adicione informações sobre seu ambiente
+  - SO: [por exemplo iOS, Ubuntu]
+  - Navegador [por exemplo Chrome (69.0.3472.3), Firefox (62.0.3)]
+  - Nó [por exemplo, 8.9.1]
+  - Etc
 -->
 
-**Additional context**
+**Contexto adicional**
 
-<!-- Add any other context about the problem here. -->
+<!-- Adicione qualquer outro contexto sobre o problema aqui. -->

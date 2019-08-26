@@ -1,29 +1,29 @@
 ---
 name: Enhancement request
-about: Suggest an idea for this project
-title: ''
+about: Sugerir uma ideia para o projeto
+title: ""
 labels: enhancement
-assignees: ''
+assignees: ""
 ---
 
-<!-- Verify first that your issue is not already reported -->
+<!-- Verifique primeiro se a sua issue já não foi reportada -->
 
-<!-- Please only use this template for submitting enhancement requests -->
+<!-- Use este modelo apenas para enviar solicitações de aprimoramento -->
 
-<!-- If possible complete *all* sections as described. Don't remove any section. -->
+<!-- Se possível, complete * todas * as seções, conforme descrito. Não remova nenhuma seção. -->
 
-**What would you like to be added**:
+**O que você gostaria de adicionar**:
 
-<!-- A clear and concise description of what would you like to be added. -->
+<!-- Uma descrição clara e concisa do que você gostaria de adicionar. -->
 
-**Why is this needed**:
+**Por que isso é necessário**:
 
-<!-- A clear and concise description of why is it needed. -->
+<!-- Uma descrição clara e concisa de por que é necessário. -->
 
-**Is your enhancement request related to a problem? Please describe.**
+**Sua solicitação de aprimoramento está relacionada a um problema? Por favor descreva.**
 
-<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+<!-- Uma descrição clara e concisa de qual é o problema. Ex. Fico sempre frustrado quando [...] -->
 
-**Additional context**
+**Contexto adicional**
 
-<!-- Add any other context or screenshots about the enhancement request here. -->
+<!-- Adicione qualquer outro contexto ou captura de tela sobre a solicitação de aprimoramento aqui. -->

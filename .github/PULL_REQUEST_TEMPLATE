@@ -1,17 +1,15 @@
-<!-- If this is your first time, please read our contribution guidelines: (https://github.com/Rocketseat/unform/blob/master/.github/CONTRIBUTING.md) -->
+<!-- Se esta é sua primeira vez, leia nossas diretrizes de contribuição: (https://github.com/CMCuritiba/ramais-react/blob/master/.github/CONTRIBUTING.md) -->
 
-<!-- Verify first that your pull request is not already proposed -->
+<!-- Verifique primeiro se sua solicitação de recebimento ainda não foi proposta -->
 
-<!-- Refrain from using any language other than English -->
+<!-- Verifique se você adicionou ou executou os testes apropriados para o seu PR -->
 
-<!-- Ensure you have added or ran the appropriate tests for your PR -->
+<!-- Se possível, complete * todas * as seções, conforme descrito. Não remova nenhuma seção. -->
 
-<!-- If possible complete *all* sections as described. Don't remove any section. -->
+**Alterações propostas**
+<!--- Descreva a alteração abaixo, incluindo a lógica e as decisões de design -->
 
-**Changes proposed**
-<!--- Describe the change below, including rationale and design decisions -->
+<!--- Inclua "Correções #[número_de problema]" se você estiver corrigindo um problema existente -->
 
-<!--- Include "Fixes #[issue_number]" if you are fixing an existing issue -->
-
-**Additional context**
-<!-- Add any other context or screenshots about the feature request here. -->
+**Contexto adicional**
+<!-- Adicione qualquer outro contexto ou captura de tela sobre a solicitação de recurso aqui. -->

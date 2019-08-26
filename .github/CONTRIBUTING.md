@@ -1,219 +1,105 @@
-# Contribution guidelines
+# Diretrizes de contribuição
 
-## Table of Contents
+## Índice
 
-- [Getting started](#getting-started)
-  - [Language](#language)
-    - [For native English speakers](#for-native-english-speakers)
-  - [Code of Conduct](#code-of-conduct)
-- [How can I help?](#how-can-i-help)
-  - [Documentation](#documentation)
-  - [Issues](#issues)
-    - [Submitting an issue](#submitting-an-issue)
-  - [Feedback](#feedback)
-  - [Code](#code)
-    - [Dev environment](#dev-environment)
-- [Commiting](#commiting)
-  - [Skipping building process](#skipping-building-process)
-  - [Why all these rules?](#why-all-these-rules)
-- [Submitting a pull request](#submitting-a-pull-request)
+- [Primeiros passos] (# primeiros passos)
+    - [Código de Conduta] (# código de conduta)
+- [Como posso ajudar?] (# How-can-i-help)
+    - [Documentação] (# documentação)
+    - [Edições] (# edições)
+      - [Enviando um problema] (# enviando um problema)
+    - [Feedback] (# feedback)
+    - [Código] (# código)
+      - [Ambiente de desenvolvimento] (# ambiente de desenvolvimento)
+- [Confirmando] (# confirmando)
+    - [Ignorando processo de construção] (# ignorando processo de construção)
+    - [Por que todas essas regras?] (# Por que todas essas regras)
+- [Enviando uma solicitação pull] (# enviando uma solicitação pull)
 
-## Getting started
+## Começando
 
-First off, we would like to thank you for taking the time to contribute and make this a better project!
+Primeiramente, gostaríamos de agradecer por você dedicar um tempo para contribuir e fazer deste um projeto melhor!
 
-Here we have a set of instructions and guidelines to reduce misunderstandings and make the process of contributing to `unform` as smooth as possible.
+Aqui temos um conjunto de instruções e diretrizes para reduzir mal-entendidos e tornar o processo de contribuição para 'desformar' o mais suave possível.
 
-We hope this guide makes the contribution process clear and answers any questions you may have.
+Esperamos que este guia torne claro o processo de contribuição e responda a quaisquer perguntas que você possa ter.
 
-### Language
+### Código de conduta
 
-Please, while contributing or interacting in any way in this project, refrain from using any language other than **English**.
+Esperamos que os participantes do projeto cumpram nosso Código de Conduta. Você pode verificar o [texto completo](CODE_OF_CONDUCT.md) para entender o tipo de conduta que esperamos e quais ações serão e não serão toleradas.
 
-#### For native English speakers
+Ao participar deste projeto, você concorda em cumprir seus termos.
 
-Try to use simple words and sentences. Don't make fun of non-native English speakers if you find something wrong about the way they express themselves.
+## Como posso ajudar?
 
-Try to encourage newcomers to express their opinions, and make them comfortable enough to do so.
+Aqui estão algumas maneiras pelas quais você pode ajudar, juntamente com algumas diretrizes.
 
-### Code of Conduct
+Documentação
 
-We expect that project participants to adhere to our Code of Conduct. You can check the [full text](CODE_OF_CONDUCT.md) so that you may understand the kind of conduct we are expecting and what actions will and will not be tolerated.
+Erros de digitação, erros, falta de exemplos e / ou explicações e assim por diante, são apenas alguns exemplos de coisas que podem ser corrigidas e / ou aprimoradas.
 
-By participating in this project, you agree to abide by its terms.
+Você pode até fazer melhorias neste guia! :)
 
-## How can I help?
+Ao documentar, tente manter as coisas simples e claras.
 
-Here are some ways you can help along with some guidelines.
+### Problemas
 
-### Documentation
+Alguns problemas são criados com informações ausentes, sem modelo, não reproduzíveis ou comuns
+inválido.
 
-As a user of `unform`, you're the perfect candidate to help us improve our documentation!
+Você pode torná-los mais fáceis de entender e resolver.
 
-Typos, errors, lack of examples and/or explanation and so on, are just some examples of things that could be fixed and/or improved.
+#### Enviando um problema
 
-You could even make improvements to this guide! :)
+- Procure problemas semelhantes antes de abrir um novo;
+- Use um dos modelos de problemas correspondentes;
+- Use um título claro e descritivo;
+- Inclua o máximo de informações possível preenchendo o problema fornecido
+    modelo;
+- Na maioria das vezes, a melhor maneira de relatar um problema é a falha no teste.
 
-While documenting, try to keep things simple and clear.
+### Comentários
 
-### Issues
+Quanto mais feedback, melhor! Estamos sempre procurando mais sugestões e opiniões sobre discussões. Essa é uma boa oportunidade para influenciar a direção futura desta ferramenta.
 
-Some issues are created with missing information, without a template, not reproducible, or plain
-invalid.
+Isso inclui o envio de uma sugestão de aprimoramento, incluindo recursos completamente novos e pequenas melhorias na funcionalidade existente.
 
-You can make them easier to understand and resolve.
-
-#### Submitting an issue
-
-- Please search for similar issues before opening a new one;
-- Use one of the corresponding issue templates;
-- Use a clear and descriptive title;
-- Include as much information as possible by filling out the provided issue
-  template;
-- Most of the time, the best way to report an issue is a failing test proving it.
-
-### Feedback
-
-The more feedback the better! We're always looking for more suggestions and opinions on discussions. That's a good opportunity to influence the future direction of this tool.
-
-This includes submitting an enhancement suggestion, including completely new features and minor improvements to existing functionality.
-
-The [`question`](https://github.com/Rocketseat/unform/labels/question)
-and
-[`rfc`](https://github.com/Rocketseat/unform/labels/rfc)
-labels are a good place to find ongoing discussions.
+A [`pergunta`](https://github.com/CMCuritiba/ramais-react/labels/question)
+e
+[`rfc`](https://github.com/CMCuritiba/ramais-react/labels/rfc)
+os rótulos são um bom lugar para encontrar discussões em andamento.
 
 ### Code
 
-You can use issue labels to discover issues you could help out with:
+Você pode usar rótulos de problemas para descobrir problemas com os quais você poderia ajudar:
 
-- [`bug` issues](https://github.com/Rocketseat/unform/labels/bug)
-  are known bugs we'd like to fix;
-- [`enhancement` issues](https://github.com/Rocketseat/unform/labels/enhancement)
-  are features we're open to include.
+- [problemas do bug`](https://github.com/CMCuritiba/ramais-react/labels/bug)
+    são erros conhecidos que gostaríamos de corrigir;
+- [problemas de aprimoramento`](https://github.com/CMCuritiba/ramais-react/labels/enhancement)
+    são recursos que estamos abertos a incluir.
 
-The
-[`help wanted`](https://github.com/Rocketseat/unform/labels/help%20wanted)
-and
-[`good first issue`](https://github.com/Rocketseat/unform/labels/good%20first%20issue)
-labels are especially useful.
+o
+[`ajuda procurada`](https://github.com/Rocketseat/CMCuritiba/ramais-react/help%20wanted)
+e
+[`good first issue`](https://github.com/CMCuritiba/ramais-react/labels/good%20first%20issue)
+rótulos são especialmente úteis.
 
-When you see an issue that is already assigned, please check to see if there isn't someone working on it already (maybe try asking in the issue). This is to prevent unnecessary work for everyone involved.
+Quando você vir um problema já atribuído, verifique se já não há alguém trabalhando nele (talvez tente perguntar no problema). Isso é para evitar trabalho desnecessário para todos os envolvidos.
 
-#### Dev environment
+#### Ambiente de desenvolvimento
 
-When developing, prefer using **Node** ≥ 8 and **yarn**. Writing code with the latest stable Node versions allows us to use newer developer tools.
+Ao desenvolver, prefira usar ** Nó ** ≥ 8 e ** fio **. Escrever código com as versões estáveis ​​mais recentes do nó nos permite usar as ferramentas mais recentes do desenvolvedor.
 
-After [cloning the repository](https://help.github.com/articles/cloning-a-repository/), run `yarn` to install dependencies.
+Após [clonar o repositório](https://help.github.com/articles/cloning-a-repository/), execute `yarn` para instalar dependências.
 
-A summary of the scripts:
+Um resumo dos scripts:
 
-- To run the example use `yarn dev:example`;
-- The `yarn dev:start` command will build the lib and watch files in bundle and rebuild on changes;
-- Running `yarn dev` will run both `dev:example` and `dev:start`;
-- Use `yarn test` to run the test suite (powered by [Jest](https://facebook.github.io/jest/));
-- `yarn coveralls` can't be used locally, this is only used to provide test coverage statistics to [Coveralls](https://coveralls.io);
-  - For code coverage locally, you can run `yarn test --coverage`.
-- `yarn build` will build the lib using [Rollup](https://rollupjs.org/guide/en);
+- Para executar o exemplo, use `yarn dev: example`;
+- O comando `yarn dev: start` compilará os arquivos lib e watch em pacote e será reconstruído com as alterações;
+- Executar o `yarn dev` executará o`dev: example` e o `dev: start`;
+- Use `yarn test` para executar o conjunto de testes (desenvolvido por [Jest](https://facebook.github.io/jest/));
+- o 'macacão de fios' não pode ser usado localmente, é usado apenas para fornecer estatísticas de cobertura de teste ao [Coveralls](https://coveralls.io);
+    + Para cobertura de código localmente, você pode executar o `yarn test --coverage`.
+- `yarn build` compilará a lib usando [Rollup](https://rollupjs.org/guide/en);
 
-This project uses [Prettier](http://prettier.io/) for code formatting. Consider installing an [editor plugin](https://prettier.io/docs/en/editors.html) for the best experience, but code will also be formatted with a precommit script (using [lint-staged](https://github.com/okonet/lint-staged)).
-
-## Commiting
-
-A commit message can consists of a **header**, **body** and **footer**. The header is the only mandatory part and consists of a type and a subject. The body is used to fully describe the change. The footer is the place to reference any issues or pull requests related to the commit. That said, we end with a template like this:
-
-```
-<type>: <subject>
-
-[optional body]
-
-[optional footer]
-```
-
-To ensure that a commit is valid, easy to read, and changelog-ready, we have a hook that lints the commit message before allowing a commit to pass. This linter verifies the following:
-
-- The header (first line) is the only mandatory part of the commit message;
-- The body and footer are both optional but its use is highly encouraged;
-- The header should contains:
-  - A type:
-    - Must be lowercase;
-    - Must be one of:
-      - **chore**: A change that neither fix a bug nor adds a feature;
-      - **ci**: A CI change;
-      - **docs**: A documentation change or fix;
-      - **feat**: A new feature;
-      - **fix**: A bug fix;
-      - **test**: A test-related change.
-  - A subject:
-    - Must be capitalized;
-    - Must be limited to 50 characters or less;
-    - Must omit any trailing punctuation.
-- The body:
-  - Must have a leading blank line;
-  - Each line must be limited to 72 characters or less.
-- The footer:
-  - Must have a leading blank line;
-  - Each line must be limited to 72 characters or less;
-  - If your commit is about documentation or meta files, please add the tag **[skip ci]** to skip the building process.
-  - If needed, reference to issues and pull requests must be made here in the last line.
-
-You also should follow these general guidelines when committing:
-
-- Use the present tense ("Add feature" not "Added feature");
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...");
-- Try to answer the following questions:
-  - Why is this change necessary?
-  - How does it address the issue?
-  - What side effects (if any) does this change may have?
-
-Example of a commit message:
-
-```
-type: Commit message style guide for Git
-
-The first line of a commit message serves as a summary.  When displayed
-on the web, it's often styled as a heading, and in emails, it's
-typically used as the subject. As such, you should specify a "type" and
-a "subject". The type must be lowercase and one of: chore, ci, docs,
-feat, fix, test. For the subject you'll need capitalize it and
-omit any trailing punctuation. Aim for about 50 characters, give or
-take, otherwise it may be painfully truncated in some contexts. Write
-it, along with the rest of your message, in the present tense and
-imperative mood: "Fix bug" and not "Fixed bug" or "Fixes bug".
-Consistent wording makes it easier to mentally process a list of
-commits.
-
-Oftentimes a subject by itself is sufficient. When it's not, add a
-blank line (this is important) followed by one or more paragraphs hard
-wrapped to 72 characters. Git is strongly opinionated that the author
-is responsible for line breaks; if you omit them, command line tooling
-will show it as one extremely long unwrapped line. Fortunately, most
-text editors are capable of automating this.
-
-Issues and pull request can be referenced on the footer: #3 #12
-```
-
-### Skipping building process
-
-By default, Travis CI automatically runs the building process whenever you push changes. If your commit is about documentation or meta files, you can override this behavior by adding a **[skip ci]** tag anywhere in a commit’s **footer**. This not only skips the marked commit, but also **all other commits** in the push.
-
-### Why all these rules?
-
-We try to enforce these rules for the following reasons:
-
-- Automatically generating changelog;
-- Communicating in a better way the nature of changes;
-- Triggering build and publish processes;
-- Automatically determining a semantic version bump (based on the types of commits);
-- Making it easier for people to contribute, by allowing them to explore a more structured commit history.
-
-## Submitting a pull request
-
-Before submitting a pull request, please make sure the following is done:
-
-- [Fork](https://help.github.com/en/articles/fork-a-repo) the repository and create your branch from `master`.
-  - Example: `feature/my-awesome-feature` or `fix/annoying-bug`;
-- Run `yarn` in the repository root;
-- If you’ve fixed a bug or added code that should be tested, **add tests**;
-- Ensure the test suite passes;
-- Ensure your commit is validated;
+Este projeto usa [Prettier](http://prettier.io/) para formatação de código. Considere instalar um [plugin do editor](https://prettier.io/docs/en/editors.html) f

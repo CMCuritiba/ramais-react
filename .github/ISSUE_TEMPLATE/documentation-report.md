@@ -1,21 +1,21 @@
 ---
 name: Documentation report
-about: Use this template for documentation related issues
-title: ''
+about: Use este modelo para problemas relacionados à documentação
+title: ""
 labels: docs
-assignees: ''
+assignees: ""
 ---
 
-<!-- Verify first that your issue is not already reported -->
+<!-- Verifique primeiro se seu problema ainda não foi relatado -->
 
-<!-- Please only use this template for documentation related issues -->
+<!-- Use este modelo apenas para problemas relacionados à documentação -->
 
-<!-- If possible complete *all* sections as described. Don't remove any section. -->
+<!-- Se possível, complete * todas * as seções, conforme descrito. Não remova nenhuma seção. -->
 
-**Description of issue**
+**Descrição do problema**
 
-<!-- A clear description what needs changing, why should it be changed? How is it useful? -->
+<!-- Uma descrição clara do que precisa ser mudado, por que deveria ser mudado? Como é útil? -->
 
-**Usage example**
+**Exemplo de uso**
 
-<!-- Is there a usage example? -->
+<!-- Existe um exemplo de uso? -->

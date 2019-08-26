@@ -1,32 +1,32 @@
-# Code of Conduct
+# Código de conduta
 
-This Code of Conduct outlines our expectations for participants within the Rocketseat community as well as steps to reporting unacceptable behavior. Our goal is to make explicit what we expect from participants in this community as well as its leaders. We are committed to providing a welcoming and inspiring community for all and expect our code of conduct to be honored. Anyone who violates this code of conduct may be banned from the community.
+Este Código de Conduta descreve nossas expectativas para os participantes do grupo CMC, bem como as etapas para relatar comportamentos inaceitáveis. Nosso objetivo é tornar explícito o que esperamos dos participantes deste grupo e de seus líderes. Temos o compromisso de oferecer a todos um grupo acolhedor e inspirador e esperamos que nosso código de conduta seja respeitado. Qualquer pessoa que violar este código de conduta pode ser banida da comunidade.
 
-Our community strives to:
+Nosso grupo se esforça para:
 
-- **Be welcoming, friendly and patient**.
-- **Be considerate**: Your work will be used by other people, and you in turn will depend on the work of others. Any decision you take will affect users and colleagues, and you should take those consequences into account when making decisions. Remember that you might not be communicating in someone else’s primary language.
-- **Be respectful**: Not all of us will agree all the time, but disagreement is no excuse for poor behavior and poor manners. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. It’s important to remember that a community where people feel uncomfortable or threatened is not a productive one.
-- **Be understandable**: Disagreements, both social and technical, happen all the time and Rocketseat is no exception. It is important that we resolve disagreements and differing views constructively. Remember that we're different. The strength of Rocketseat comes from its varied community, people from a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint doesn't mean that they're wrong. Don't forget that it is human to err and blaming each other doesn't get us anywhere, rather offer to help resolving issues and to help learn from mistakes.
+- ** Seja acolhedor, amigável e paciente **.
+- ** Seja atencioso **: seu trabalho será usado por outras pessoas e você, por sua vez, dependerá do trabalho de outras pessoas. Qualquer decisão que você tomar afetará usuários e colegas, e você deve levar essas consequências em consideração ao tomar decisões. Lembre-se de que você pode não estar se comunicando no idioma principal de outra pessoa.
+- ** Seja respeitoso **: nem todos concordamos o tempo todo, mas discordar não é desculpa para mau comportamento e falta de educação. Todos nós podemos experimentar alguma frustração de vez em quando, mas não podemos permitir que essa frustração se transforme em um ataque pessoal. É importante lembrar que uma comunidade em que as pessoas se sentem desconfortáveis ​​ou ameaçadas não é produtiva.
+- ** Seja compreensível **: Desentendimentos, tanto sociais quanto técnicos, acontecem o tempo todo e o grupo CMC não é exceção. É importante que resolvamos divergências e opiniões divergentes construtivamente. Lembre-se de que somos diferentes. Pessoas diferentes têm perspectivas diferentes sobre questões. Ser incapaz de entender por que alguém tem um ponto de vista não significa que eles estão errados. Não se esqueça que é humano errar e culpar um ao outro não nos leva a lugar algum, mas ofereça ajuda para resolver problemas e aprender com os erros.
 
-This code serves to distill our common understanding of a collaborative, shared environment, and goals. We expect it to be followed in spirit as much as in the letter.
+Esse código serve para destilar nosso entendimento comum de um ambiente colaborativo e compartilhado e objetivos. Esperamos que seja seguido em espírito tanto quanto na carta.
 
-### Diversity Statement
+### Declaração de diversidade
 
-We encourage everyone to participate and are committed to building a community for all. Although we may not be able to satisfy everyone, we all agree that everyone is equal. Whenever a participant has made a mistake, we expect them to take responsibility for it. If someone has been harmed or offended, it is our responsibility to listen carefully and respectfully, and do our best to right the wrong.
+Incentivamos todos a participar e estamos comprometidos em construir uma comunidade para todos. Embora possamos não ser capazes de satisfazer a todos, todos concordamos que todos são iguais. Sempre que um participante cometeu um erro, esperamos que ele assuma a responsabilidade por isso. Se alguém foi ferido ou ofendido, é nossa responsabilidade ouvir com atenção e respeito e fazer o possível para corrigir o erro.
 
-Although this list cannot be exhaustive, we explicitly honor diversity in age, gender, gender identity or expression, culture, ethnicity, language, national origin, political beliefs, profession, race, religion, sexual orientation, socioeconomic status, and technical ability. We will not tolerate discrimination based on any of the protected characteristics above, including participants with disabilities.
+Embora essa lista não possa ser exaustiva, honramos explicitamente a diversidade de idade, sexo, identidade ou expressão de gênero, cultura, etnia, idioma, origem nacional, crenças políticas, profissão, raça, religião, orientação sexual, status socioeconômico e capacidade técnica. Não toleraremos discriminação com base em nenhuma das características protegidas acima, incluindo participantes com deficiência.
 
-### Reporting Issues
+### Relatório de problemas
 
-If you experience or witness unacceptable behavior—or have any other concerns—please report it by contacting us via oi@rocketseat.com.br. All reports will be handled with discretion. In your report please include:
+Se você experimentar ou testemunhar um comportamento inaceitável - ou tiver outras preocupações -, denuncie-o. Todos os relatórios serão tratados com discrição. No seu relatório, inclua:
 
-- Your contact information.
-- Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record, please include a link.
-- Any additional information that may be helpful.
+- Sua informação de contato.
+- Nomes (reais, apelidos ou pseudônimos) de todos os indivíduos envolvidos. Se houver testemunhas adicionais, inclua-as também. Sua conta do que ocorreu e se você acredita que o incidente está em andamento. Se houver um registro disponível publicamente, inclua um link.
+- Qualquer informação adicional que possa ser útil.
 
-After filing a report, a representative will contact you personally. If the person who is harassing you is part of the response team, they will recuse themselves from handling your incident. A representative will then review the incident, follow up with any additional questions, and make a decision as to how to respond. We will respect confidentiality requests for the purpose of protecting victims of abuse.
+Depois de registrar um relatório, um representante entrará em contato com você pessoalmente. Se a pessoa que está assediando você fizer parte da equipe de resposta, ela se recusará a lidar com o seu incidente. Um representante analisará o incidente, fará perguntas adicionais e tomará uma decisão sobre como responder. Respeitaremos os pedidos de confidencialidade com o objetivo de proteger as vítimas de abuso.
 
-Anyone asked to stop unacceptable behavior is expected to comply immediately. If an individual engages in unacceptable behavior, the representative may take any action they deem appropriate, up to and including a permanent ban from our community without warning.
+Qualquer pessoa solicitada a interromper o comportamento inaceitável deve cumprir imediatamente. Se um indivíduo se envolver em um comportamento inaceitável, o representante poderá tomar as medidas que julgar apropriadas, até e incluindo uma proibição permanente de nossa comunidade sem aviso prévio.
 
-_This Code Of Conduct follows the template established by [TODO Group](https://todogroup.org)_.
+_Este Código de Conduta segue o modelo estabelecido pelo [TODO Group](https://todogroup.org) _.
