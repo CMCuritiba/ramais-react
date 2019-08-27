@@ -1,20 +1,23 @@
-const express = require("express");
+import express from 'express';
+import routes from './routes';
 
-class AppController {
+import './database';
+
+class App {
   constructor() {
-    this.express = express();
+    this.server = express();
 
     this.middlewares();
     this.routes();
   }
 
   middlewares() {
-    this.express.use(express.json());
+    this.server.use(express.json());
   }
 
   routes() {
-    this.express.use(require("./routes"));
+    this.server.use(routes);
   }
 }
 
-module.exports = new AppController().express;
+export default new App().server;
