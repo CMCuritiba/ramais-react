@@ -27,7 +27,7 @@ class Setor extends Model {
     });
 
     this.belongsTo(models.VSetor, {
-      foreignKey: 'id',
+      foreignKey: 'set_id',
     });
   }
 }
