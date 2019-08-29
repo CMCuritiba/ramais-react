@@ -1,17 +1,18 @@
 import Sequelize, { Model } from 'sequelize';
 
-class VSetor extends Model {
+class VFuncionario extends Model {
   static init(sequelize) {
     super.init(
       {
-        id: {
+        pessoa: {
           type: Sequelize.INTEGER,
           primaryKey: true,
         },
-        set_nome: Sequelize.STRING,
+        pes_nome: Sequelize.STRING,
+        set_id: Sequelize.INTEGER,
       },
       {
-        tableName: 'v_setor',
+        tableName: 'v_cmcfuncionarios',
         sequelize,
         freezeTableName: true,
         timestamps: false,
@@ -20,12 +21,6 @@ class VSetor extends Model {
 
     return this;
   }
-
-  static associate(models) {
-    this.hasMany(models.VFuncionario, {
-      foreignKey: 'set_id',
-    });
-  }
 }
 
-export default VSetor;
+export default VFuncionario;

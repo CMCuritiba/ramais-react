@@ -1,5 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
+// import VFuncionario from './VFuncionario';
+
 class Setor extends Model {
   static init(sequelize) {
     super.init(
@@ -28,6 +30,10 @@ class Setor extends Model {
 
     this.belongsTo(models.VSetor, {
       foreignKey: 'set_id',
+    });
+
+    this.hasMany(models.Ramal, {
+      foreignKey: 'setor_id',
     });
   }
 }

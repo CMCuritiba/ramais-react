@@ -6,10 +6,19 @@ import Pavimento from '../app/models/Pavimento';
 import Ramal from '../app/models/Ramal';
 import VSetor from '../app/models/VSetor';
 import Setor from '../app/models/Setor';
+import VFuncionario from '../app/models/VFuncionario';
 
 import databaseConfig from '../config/database';
 
-const models = [TipoRamal, Localizacao, Pavimento, Ramal, VSetor, Setor];
+const models = [
+  TipoRamal,
+  Localizacao,
+  Pavimento,
+  Ramal,
+  VSetor,
+  Setor,
+  VFuncionario,
+];
 
 class Database {
   constructor() {
