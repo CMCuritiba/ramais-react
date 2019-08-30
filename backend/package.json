@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^7.12.1",
-    "sequelize": "^5.15.1"
+    "sequelize": "^5.15.1",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "eslint": "^6.2.2",

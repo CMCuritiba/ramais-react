@@ -10,6 +10,7 @@ class VFuncionario extends Model {
         },
         pes_nome: Sequelize.STRING,
         set_id: Sequelize.INTEGER,
+        funcao: Sequelize.INTEGER,
       },
       {
         tableName: 'v_cmcfuncionarios',
