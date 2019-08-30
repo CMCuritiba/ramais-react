@@ -35,6 +35,10 @@ class Setor extends Model {
     this.hasMany(models.Ramal, {
       foreignKey: 'setor_id',
     });
+
+    this.hasMany(models.VFuncionario, {
+      foreignKey: 'set_id',
+    });
   }
 }
 
