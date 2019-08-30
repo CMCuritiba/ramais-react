@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import RamalController from './app/controllers/RamalController';
+import RamalEspecialController from './app/controllers/RamalEspecialController';
 import TipoRamalController from './app/controllers/TipoRamalController';
 import LocalizacaoController from './app/controllers/LocalizacaoController';
 import VSetorController from './app/controllers/VSetorController';
@@ -17,6 +18,7 @@ routes.get('/localizacoes', LocalizacaoController.index);
 routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
 routes.get('/ramais', RamalController.index);
+routes.get('/ramais-especiais', RamalEspecialController.index);
 
 /**
  * Rotas com autenticação

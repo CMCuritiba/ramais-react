@@ -4,6 +4,7 @@ import TipoRamal from '../app/models/TipoRamal';
 import Localizacao from '../app/models/Localizacao';
 import Pavimento from '../app/models/Pavimento';
 import Ramal from '../app/models/Ramal';
+import RamalEspecial from '../app/models/RamalEspecial';
 import VSetor from '../app/models/VSetor';
 import Setor from '../app/models/Setor';
 import VFuncionario from '../app/models/VFuncionario';
@@ -18,6 +19,7 @@ const models = [
   VSetor,
   Setor,
   VFuncionario,
+  RamalEspecial,
 ];
 
 class Database {
