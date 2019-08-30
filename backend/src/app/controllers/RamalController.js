@@ -9,7 +9,7 @@ import Pavimento from '../models/Pavimento';
 
 class RamalController {
   async index(req, res) {
-    const { pesquisa } = req.query;
+    // const { pesquisa } = req.query;
 
     /**
      * Jeito mais sofisticado de fazer
@@ -106,21 +106,8 @@ class RamalController {
 
             const funcionarios = [];
             func.map(f => {
-              let funcao = '';
-              switch (f.funcao) {
-                case 163:
-                  funcao = 'DIRETOR';
-                  break;
-                case 166:
-                  funcao = 'CHEFE';
-                  break;
-                case 167:
-                  funcao = 'CHEFE';
-                  break;
-                default:
-                  funcao = 'TORA';
-                  break;
-              }
+              const funcao = RamalController.defineFuncao(f.funcao);
+
               return funcionarios.push({
                 funcionario: f.pes_nome,
                 funcao,
@@ -135,14 +122,34 @@ class RamalController {
               funcionarios,
               ramais,
             };
+
             retorno.push(no);
           })
         );
       })
       .then(() => {
         const retornoOrdenado = underscore.sortBy(retorno, 'id');
+
         return res.json(retornoOrdenado);
       });
+  }
+
+  static defineFuncao(funcao) {
+    switch (funcao) {
+      case 163:
+        funcao = 'DIRETOR';
+        break;
+      case 166:
+        funcao = 'CHEFE';
+        break;
+      case 167:
+        funcao = 'CHEFE';
+        break;
+      default:
+        funcao = 'TORA';
+        break;
+    }
+    return funcao;
   }
 }
 
