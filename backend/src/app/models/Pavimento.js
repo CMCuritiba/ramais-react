@@ -14,6 +14,13 @@ class Pavimento extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasOne(models.Localizacao, {
+      foreignKey: 'id',
+      sourceKey: 'localizacao_id',
+    });
+  }
 }
 
 export default Pavimento;

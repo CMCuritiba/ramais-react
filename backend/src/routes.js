@@ -6,6 +6,7 @@ import TipoRamalController from './app/controllers/TipoRamalController';
 import LocalizacaoController from './app/controllers/LocalizacaoController';
 import VSetorController from './app/controllers/VSetorController';
 import SetorController from './app/controllers/SetorController';
+import PavimentoController from './app/controllers/PavimentoController';
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -16,6 +17,7 @@ const routes = new Router();
 routes.get('/', RamalController.index);
 routes.get('/tipos-ramal', TipoRamalController.index);
 routes.get('/localizacoes', LocalizacaoController.index);
+routes.get('/pavimentos', PavimentoController.index);
 routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
 routes.get('/ramais', RamalController.index);
@@ -29,5 +31,9 @@ routes.use(authMiddleware);
 routes.post('/localizacoes', LocalizacaoController.store);
 routes.put('/localizacoes/:id', LocalizacaoController.update);
 routes.delete('/localizacoes/:id', LocalizacaoController.delete);
+
+routes.post('/pavimentos', PavimentoController.store);
+routes.put('/pavimentos/:id', PavimentoController.update);
+routes.delete('/pavimentos/:id', PavimentoController.delete);
 
 export default routes;
