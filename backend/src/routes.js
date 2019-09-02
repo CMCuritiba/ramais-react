@@ -6,6 +6,7 @@ import TipoRamalController from './app/controllers/TipoRamalController';
 import LocalizacaoController from './app/controllers/LocalizacaoController';
 import VSetorController from './app/controllers/VSetorController';
 import SetorController from './app/controllers/SetorController';
+import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
@@ -23,5 +24,10 @@ routes.get('/ramais-especiais', RamalEspecialController.index);
 /**
  * Rotas com autenticação
  */
+routes.use(authMiddleware);
+
+routes.post('/localizacoes', LocalizacaoController.store);
+routes.put('/localizacoes/:id', LocalizacaoController.update);
+routes.delete('/localizacoes/:id', LocalizacaoController.delete);
 
 export default routes;
