@@ -36,4 +36,8 @@ routes.post('/pavimentos', PavimentoController.store);
 routes.put('/pavimentos/:id', PavimentoController.update);
 routes.delete('/pavimentos/:id', PavimentoController.delete);
 
+routes.post('/ramais-especiais', RamalEspecialController.store);
+routes.put('/ramais-especiais/:id', RamalEspecialController.update);
+routes.delete('/ramais-especiais/:id', RamalEspecialController.delete);
+
 export default routes;
