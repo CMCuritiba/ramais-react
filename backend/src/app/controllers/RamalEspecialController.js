@@ -104,6 +104,10 @@ class RamalEspecialController {
 
     const ramal = await RamalEspecial.findByPk(req.params.id);
 
+    if (!ramal) {
+      return res.status(400).json({ error: 'Ramal Especial não encontrado' });
+    }
+
     try {
       const { id, nome, numero, visivel, ordem } = await ramal.update(req.body);
       return res.json({
