@@ -4,9 +4,15 @@ class RamalEspecial extends Model {
   static init(sequelize) {
     super.init(
       {
-        numero: Sequelize.INTEGER,
+        nome: Sequelize.STRING,
+        numero: {
+          type: Sequelize.INTEGER,
+        },
         visivel: Sequelize.BOOLEAN,
-        localizacao_id: Sequelize.INTEGER,
+        ordem: {
+          type: Sequelize.INTEGER,
+          defaultValue: 1,
+        },
       },
       {
         tableName: 'ramais_especiais',
