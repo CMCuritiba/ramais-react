@@ -10,6 +10,7 @@ module.exports = {
       numero: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
       },
       visivel: {
         type: Sequelize.BOOLEAN,

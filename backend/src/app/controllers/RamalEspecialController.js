@@ -55,19 +55,23 @@ class RamalEspecialController {
       return res.status(400).json({ error: 'Pavimento não é válido' });
     }
 
-    const { id, nome, numero, visivel, ordem } = await RamalEspecial.create(
-      req.body
-    );
+    try {
+      const { id, nome, numero, visivel, ordem } = await RamalEspecial.create(
+        req.body
+      );
 
-    return res.json({
-      id,
-      nome,
-      numero,
-      visivel,
-      ordem,
-      localizacao_id,
-      pavimento_id,
-    });
+      return res.json({
+        id,
+        nome,
+        numero,
+        visivel,
+        ordem,
+        localizacao_id,
+        pavimento_id,
+      });
+    } catch (err) {
+      return res.status(400).json({ error: 'Ramal Especial já cadastrado' });
+    }
   }
 
   async update(req, res) {
@@ -120,7 +124,7 @@ class RamalEspecialController {
         pavimento_id,
       });
     } catch (err) {
-      return res.status(400).json({ error: 'Ramal já cadastrado' });
+      return res.status(400).json({ error: 'Ramal Especial já cadastrado' });
     }
   }
 

@@ -40,4 +40,12 @@ routes.post('/ramais-especiais', RamalEspecialController.store);
 routes.put('/ramais-especiais/:id', RamalEspecialController.update);
 routes.delete('/ramais-especiais/:id', RamalEspecialController.delete);
 
+routes.post('/setores', SetorController.store);
+routes.put('/setores/:id', SetorController.update);
+routes.delete('/setores/:id', SetorController.delete);
+
+routes.post('/ramais', RamalController.store);
+routes.put('/ramais/:id', RamalController.update);
+routes.delete('/ramais/:id', RamalController.delete);
+
 export default routes;

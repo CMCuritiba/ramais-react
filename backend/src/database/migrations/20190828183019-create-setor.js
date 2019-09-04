@@ -10,6 +10,7 @@ module.exports = {
       set_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
       },
       localizacao_id: {
         type: Sequelize.INTEGER,
