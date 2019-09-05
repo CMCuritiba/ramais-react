@@ -1,6 +1,8 @@
 import express from 'express';
 import Youch from 'youch';
 import 'express-async-errors';
+import morgan from 'morgan';
+import winston from './config/log';
 
 import routes from './routes';
 import './database';
@@ -10,6 +12,7 @@ class App {
     this.server = express();
 
     this.middlewares();
+    this.logs();
     this.routes();
     this.exceptionHandler();
   }
@@ -20,6 +23,10 @@ class App {
 
   routes() {
     this.server.use(routes);
+  }
+
+  logs() {
+    this.server.use(morgan('combined', { stream: winston.stream }));
   }
 
   exceptionHandler() {
