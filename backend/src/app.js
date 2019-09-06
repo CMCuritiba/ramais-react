@@ -2,6 +2,9 @@ import express from 'express';
 import Youch from 'youch';
 import 'express-async-errors';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import compression from 'compression';
+import bodyParser from 'body-parser';
 import winston from './config/log';
 
 import routes from './routes';
@@ -9,24 +12,38 @@ import './database';
 
 class App {
   constructor() {
+    // carrega o express
     this.server = express();
-
+    // carrega os middlewares
     this.middlewares();
-    this.logs();
+    // carrega as rotas
     this.routes();
+    // carrega o handler de exception
     this.exceptionHandler();
   }
 
   middlewares() {
+    // configura o express
     this.server.use(express.json());
+    // formata o JSON retornado
+    this.server.set('json spaces', 4);
+    // configura o log da aplicação
+    this.server.use(morgan('combined', { stream: winston.stream }));
+    // configura o helmet
+    this.server.use(helmet());
+    // configura a compressão nas requisições
+    this.server.use(compression());
+    // configura o parser do JSON
+    this.server.use(
+      bodyParser.urlencoded({
+        extended: true,
+      })
+    );
+    this.server.use(bodyParser.json());
   }
 
   routes() {
     this.server.use(routes);
-  }
-
-  logs() {
-    this.server.use(morgan('combined', { stream: winston.stream }));
   }
 
   exceptionHandler() {
