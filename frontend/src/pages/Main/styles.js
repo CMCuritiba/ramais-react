@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -57,12 +58,17 @@ export const Pesquisa = styled.div`
   button {
     display: flex;
 
-    background: #7159c1;
+    background: #007bff;
     color: #fff;
     border: 0;
     border-radius: 4px;
     padding: 10px 12px;
     margin-left: 4px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.1, '#007bff')};
+    }
   }
 `;
 
