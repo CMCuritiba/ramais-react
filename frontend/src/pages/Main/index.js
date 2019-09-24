@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { MdSearch } from 'react-icons/md';
 import { GoFilePdf } from 'react-icons/go';
+import { withRouter } from 'react-router-dom';
 
 import { Container, Pesquisa, Header, Footer, Content } from './styles';
 import brasao from '../../assets/brasao.png';
 
-export default class Main extends Component {
+class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,9 +16,17 @@ export default class Main extends Component {
 
   handleSubmit = e => {
     const { pesquisa } = this.state;
+    const { history } = this.props;
+
     e.preventDefault();
-    console.log(`Formulário enviado : ${pesquisa}`);
+
+    if (pesquisa.trim() === '') return;
+
     this.setState({ pesquisa: '' });
+    history.push({
+      pathname: '/result',
+      search: `q=${pesquisa}`,
+    });
   };
 
   handlePesquisaChange = e => {
@@ -58,3 +67,5 @@ export default class Main extends Component {
     );
   }
 }
+
+export default withRouter(Main);

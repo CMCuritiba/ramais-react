@@ -1,6 +1,71 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+
   background-color: #fff;
   height: 100vh;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.3);
+`;
+
+export const Pesquisa = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  width: 100%;
+  padding-top: 20px;
+
+  form {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex: 1;
+  }
+
+  img {
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+  }
+
+  input {
+    display: flex;
+    flex: 1;
+
+    min-width: 300px;
+    line-height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #666;
+    padding: 10px 20px;
+  }
+
+  button {
+    display: flex;
+
+    background: #007bff;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin-left: 4px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.1, '#007bff')};
+    }
+  }
+`;
+
+export const Results = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  width: 100%;
 `;
