@@ -9,7 +9,7 @@ class LocalizacaoController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const localizacoes = await Localizacao.findAll(
+    const localizacoes = await Localizacao.findAndCountAll(
       paginate(
         {
           order: ['nome'],
@@ -25,7 +25,7 @@ class LocalizacaoController {
       )
     );
 
-    return res.json(localizacoes);
+    return res.json({ count: localizacoes.count, data: localizacoes.rows });
   }
 
   async store(req, res) {

@@ -8,7 +8,7 @@ class RamalAdminController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const ramais = await Ramal.findAll(
+    const ramais = await Ramal.findAndCountAll(
       paginate(
         {
           attributes: ['id', 'numero'],
@@ -23,7 +23,7 @@ class RamalAdminController {
       )
     );
 
-    return res.json(ramais);
+    return res.json({ count: ramais.count, data: ramais.rows });
   }
 }
 

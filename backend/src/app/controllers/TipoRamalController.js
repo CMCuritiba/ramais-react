@@ -7,7 +7,7 @@ class TipoRamalController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const tiposRamal = await TipoRamal.findAll(
+    const tiposRamal = await TipoRamal.findAndCountAll(
       paginate(
         {
           attributes: ['id', 'nome'],
@@ -16,7 +16,7 @@ class TipoRamalController {
       )
     );
 
-    return res.json(tiposRamal);
+    return res.json({ count: tiposRamal.count, data: tiposRamal.rows });
   }
 }
 

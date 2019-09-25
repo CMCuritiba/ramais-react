@@ -9,7 +9,7 @@ class PavimentoController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const pavimentos = await Pavimento.findAll(
+    const pavimentos = await Pavimento.findAndCountAll(
       paginate(
         {
           order: ['nome'],
@@ -25,7 +25,7 @@ class PavimentoController {
       )
     );
 
-    return res.json(pavimentos);
+    return res.json({ count: pavimentos.count, data: pavimentos.rows });
   }
 
   async store(req, res) {

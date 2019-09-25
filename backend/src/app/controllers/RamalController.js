@@ -60,11 +60,12 @@ class RamalController {
      */
 
     const { page } = req.query;
-    const pageSize = 5;
+    const pageSize = 4;
 
     const retorno = [];
+    let total = 0;
 
-    Setor.findAll(
+    Setor.findAndCountAll(
       paginate(
         {
           attributes: ['id', 'set_id'],
@@ -88,8 +89,9 @@ class RamalController {
       )
     )
       .then(setores => {
+        total = setores.count;
         return Promise.all(
-          setores.map(async setor => {
+          setores.rows.map(async setor => {
             const rama = await Ramal.findAll({
               attributes: ['numero', 'tipo_ramal_id'],
               where: { setor_id: setor.id },
@@ -142,7 +144,7 @@ class RamalController {
       .then(() => {
         const retornoOrdenado = underscore.sortBy(retorno, 'id');
 
-        return res.json(retornoOrdenado);
+        return res.json({ count: total, data: retornoOrdenado });
       });
   }
 

@@ -10,7 +10,7 @@ class RamalEspecialController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const ramaisEspeciais = await RamalEspecial.findAll(
+    const ramaisEspeciais = await RamalEspecial.findAndCountAll(
       paginate(
         {
           attributes: ['id', 'nome', 'numero', 'visivel', 'ordem'],
@@ -30,7 +30,10 @@ class RamalEspecialController {
       )
     );
 
-    return res.json(ramaisEspeciais);
+    return res.json({
+      count: ramaisEspeciais.count,
+      data: ramaisEspeciais.rows,
+    });
   }
 
   async store(req, res) {
