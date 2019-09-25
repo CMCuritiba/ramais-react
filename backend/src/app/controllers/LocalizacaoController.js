@@ -2,18 +2,28 @@ import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
 import LocalizacaoValidator from '../validators/LocalizacaoValidator';
 
+import paginate from '../helpers/paginate';
+
 class LocalizacaoController {
   async index(req, res) {
-    const localizacoes = await Localizacao.findAll({
-      order: ['nome'],
-      attributes: ['id', 'nome'],
-      include: [
+    const { page } = req.query;
+    const pageSize = 10;
+
+    const localizacoes = await Localizacao.findAll(
+      paginate(
         {
-          model: Pavimento,
+          order: ['nome'],
           attributes: ['id', 'nome'],
+          include: [
+            {
+              model: Pavimento,
+              attributes: ['id', 'nome'],
+            },
+          ],
         },
-      ],
-    });
+        { page, pageSize }
+      )
+    );
 
     return res.json(localizacoes);
   }

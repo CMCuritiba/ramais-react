@@ -3,22 +3,32 @@ import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
 import RamalEspecialValidator from '../validators/RamalEspecialValidator';
 
+import paginate from '../helpers/paginate';
+
 class RamalEspecialController {
   async index(req, res) {
-    const ramaisEspeciais = await RamalEspecial.findAll({
-      attributes: ['id', 'nome', 'numero', 'visivel', 'ordem'],
-      order: ['nome'],
-      include: [
+    const { page } = req.query;
+    const pageSize = 10;
+
+    const ramaisEspeciais = await RamalEspecial.findAll(
+      paginate(
         {
-          model: Localizacao,
-          attributes: ['id', 'nome'],
+          attributes: ['id', 'nome', 'numero', 'visivel', 'ordem'],
+          order: ['nome'],
+          include: [
+            {
+              model: Localizacao,
+              attributes: ['id', 'nome'],
+            },
+            {
+              model: Pavimento,
+              attributes: ['id', 'nome'],
+            },
+          ],
         },
-        {
-          model: Pavimento,
-          attributes: ['id', 'nome'],
-        },
-      ],
-    });
+        { page, pageSize }
+      )
+    );
 
     return res.json(ramaisEspeciais);
   }
