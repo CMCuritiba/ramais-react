@@ -9,6 +9,8 @@ import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
 import RamalValidator from '../validators/RamalValidator';
 
+import paginate from '../helpers/paginate';
+
 class RamalController {
   async index(req, res) {
     // const { pesquisa } = req.query;
@@ -57,26 +59,34 @@ class RamalController {
      * Jeito mais manual de fazer
      */
 
+    const { page } = req.query;
+    const pageSize = 5;
+
     const retorno = [];
 
-    Setor.findAll({
-      attributes: ['id', 'set_id'],
-      order: ['set_id'],
-      include: [
+    Setor.findAll(
+      paginate(
         {
-          model: Localizacao,
-          attributes: ['nome'],
+          attributes: ['id', 'set_id'],
+          order: ['set_id'],
+          include: [
+            {
+              model: Localizacao,
+              attributes: ['nome'],
+            },
+            {
+              model: Pavimento,
+              attributes: ['nome'],
+            },
+            {
+              model: VSetor,
+              attributes: ['set_nome'],
+            },
+          ],
         },
-        {
-          model: Pavimento,
-          attributes: ['nome'],
-        },
-        {
-          model: VSetor,
-          attributes: ['set_nome'],
-        },
-      ],
-    })
+        { page, pageSize }
+      )
+    )
       .then(setores => {
         return Promise.all(
           setores.map(async setor => {

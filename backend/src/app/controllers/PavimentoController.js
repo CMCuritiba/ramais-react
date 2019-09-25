@@ -2,18 +2,28 @@ import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
 import PavimentoValidator from '../validators/PavimentoValidator';
 
+import paginate from '../helpers/paginate';
+
 class PavimentoController {
   async index(req, res) {
-    const pavimentos = await Pavimento.findAll({
-      order: ['nome'],
-      attributes: ['id', 'nome'],
-      include: [
+    const { page } = req.query;
+    const pageSize = 10;
+
+    const pavimentos = await Pavimento.findAll(
+      paginate(
         {
-          model: Localizacao,
+          order: ['nome'],
           attributes: ['id', 'nome'],
+          include: [
+            {
+              model: Localizacao,
+              attributes: ['id', 'nome'],
+            },
+          ],
         },
-      ],
-    });
+        { page, pageSize }
+      )
+    );
 
     return res.json(pavimentos);
   }

@@ -4,26 +4,36 @@ import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
 import SetorValidator from '../validators/SetorValidator';
 
+import paginate from '../helpers/paginate';
+
 class SetorController {
   async index(req, res) {
-    const setores = await Setor.findAll({
-      attributes: ['id'],
-      include: [
+    const { page } = req.query;
+    const pageSize = 10;
+
+    const setores = await Setor.findAll(
+      paginate(
         {
-          model: VSetor,
-          attributes: ['id', 'set_nome'],
+          attributes: ['id'],
+          include: [
+            {
+              model: VSetor,
+              attributes: ['id', 'set_nome'],
+            },
+            {
+              model: Localizacao,
+              attributes: ['id', 'nome'],
+            },
+            {
+              model: Pavimento,
+              attributes: ['id', 'nome'],
+            },
+          ],
+          order: [[VSetor, 'id']],
         },
-        {
-          model: Localizacao,
-          attributes: ['id', 'nome'],
-        },
-        {
-          model: Pavimento,
-          attributes: ['id', 'nome'],
-        },
-      ],
-      order: [[VSetor, 'id']],
-    });
+        { page, pageSize }
+      )
+    );
 
     return res.json(setores);
   }
