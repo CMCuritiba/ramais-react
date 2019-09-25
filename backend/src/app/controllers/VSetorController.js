@@ -7,7 +7,7 @@ class VSetorController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const setores = await VSetor.findAll(
+    const setores = await VSetor.findAndCountAll(
       paginate(
         {
           attributes: ['id', 'set_nome'],
@@ -17,7 +17,7 @@ class VSetorController {
       )
     );
 
-    return res.json(setores);
+    return res.json({ count: setores.count, data: setores.rows });
   }
 }
 

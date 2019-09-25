@@ -11,7 +11,7 @@ class SetorController {
     const { page } = req.query;
     const pageSize = 10;
 
-    const setores = await Setor.findAll(
+    const setores = await Setor.findAndCountAll(
       paginate(
         {
           attributes: ['id'],
@@ -35,7 +35,7 @@ class SetorController {
       )
     );
 
-    return res.json(setores);
+    return res.json({ count: setores.count, data: setores.rows });
   }
 
   async store(req, res) {
