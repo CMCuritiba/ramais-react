@@ -21,6 +21,10 @@ export const Container = styled.div`
     color: #393434;
     font-size: 18px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 20px;
+  }
+  .localizacao {
+    color: ${lighten(0.3, '#393434')};
+    font-size: 14px;
   }
 `;

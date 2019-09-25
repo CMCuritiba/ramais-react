@@ -33,8 +33,6 @@ class SearchService {
       }
     );
 
-    // console.tron.log(listaFiltrada);
-    // return lista.data;
     return listaFiltrada;
   }
 }

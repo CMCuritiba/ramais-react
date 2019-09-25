@@ -21,6 +21,7 @@ class Result extends Component {
     this.state = {
       pesquisa: values.q,
       lista: [],
+      pesquisaNova: values.q,
     };
   }
 
@@ -29,6 +30,7 @@ class Result extends Component {
       location: { search },
     } = this.props;
 
+    console.tron.log('MOUNT ----------------');
     const values = parse(search);
 
     const lista = await SearchService.run(values);
@@ -37,23 +39,25 @@ class Result extends Component {
   }
 
   handleSubmit = async e => {
-    const { pesquisa } = this.state;
+    const { pesquisa, pesquisaNova } = this.state;
 
     e.preventDefault();
 
+    this.setState({ pesquisa: pesquisaNova });
+
     if (pesquisa.trim() === '') return;
 
-    const lista = await SearchService.run({ q: pesquisa });
+    const lista = await SearchService.run({ q: pesquisaNova });
 
     this.setState({ lista });
   };
 
   handlePesquisaChange = e => {
-    this.setState({ pesquisa: e.target.value });
+    this.setState({ pesquisaNova: e.target.value });
   };
 
   render() {
-    const { pesquisa, lista } = this.state;
+    const { pesquisa, lista, pesquisaNova } = this.state;
 
     return (
       <Container>
@@ -63,7 +67,7 @@ class Result extends Component {
             <input
               type="text"
               placeholder="digite o setor, pessoa ou ramal"
-              value={pesquisa}
+              value={pesquisaNova}
               onChange={this.handlePesquisaChange}
             />
             <button type="submit">
@@ -73,7 +77,7 @@ class Result extends Component {
         </Pesquisa>
         {lista.length >= 0 ? (
           <Results>
-            <Lista lista={lista} />
+            <Lista lista={lista} pesquisa={pesquisa} />
           </Results>
         ) : (
           <p>Nenhum item encontrado</p>
