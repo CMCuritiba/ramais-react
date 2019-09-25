@@ -6,7 +6,7 @@ import paginate from '../helpers/paginate';
 
 class PavimentoController {
   async index(req, res) {
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 10;
 
     const pavimentos = await Pavimento.findAndCountAll(
@@ -21,7 +21,7 @@ class PavimentoController {
             },
           ],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     );
 

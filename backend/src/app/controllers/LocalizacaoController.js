@@ -6,7 +6,7 @@ import paginate from '../helpers/paginate';
 
 class LocalizacaoController {
   async index(req, res) {
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 10;
 
     const localizacoes = await Localizacao.findAndCountAll(
@@ -21,7 +21,7 @@ class LocalizacaoController {
             },
           ],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     );
 

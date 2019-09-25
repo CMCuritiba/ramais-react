@@ -7,6 +7,7 @@ import { Container, Pesquisa, Results } from './styles';
 import SearchService from '../../service/SearchService';
 import brasao from '../../assets/brasao.png';
 import Lista from '../../components/Ramais/Lista';
+import Paginator from '../../components/layout/Paginator';
 
 class Result extends Component {
   constructor(props) {
@@ -22,7 +23,10 @@ class Result extends Component {
       pesquisa: values.q,
       lista: [],
       pesquisaNova: values.q,
+      _page: values._page ? values._page : 1,
     };
+
+    // console.tron.log(`Pagina :${this.state._page}`);
 
     this.searchInput = React.createRef();
   }
@@ -36,23 +40,27 @@ class Result extends Component {
 
     const lista = await SearchService.run(values);
 
-    this.setState({ lista });
+    this.setState({ lista, _page: Number(values._page) });
 
     this.searchInput.current.focus();
   }
 
   handleSubmit = async e => {
-    const { pesquisa, pesquisaNova } = this.state;
+    const { pesquisaNova } = this.state;
+    const { history } = this.props;
 
     e.preventDefault();
 
-    this.setState({ pesquisa: pesquisaNova });
+    if (pesquisaNova.trim() === '') return;
 
-    if (pesquisa.trim() === '') return;
+    const lista = await SearchService.run({ q: pesquisaNova, _page: 1 });
 
-    const lista = await SearchService.run({ q: pesquisaNova });
+    this.setState({ lista, pesquisa: pesquisaNova, _page: 1 });
 
-    this.setState({ lista });
+    history.push({
+      pathname: '/result',
+      search: `q=${pesquisaNova}&_page=1`,
+    });
   };
 
   handlePesquisaChange = e => {
@@ -64,8 +72,22 @@ class Result extends Component {
     history.push('/');
   };
 
+  handleClickPagina = async pagina => {
+    const { history } = this.props;
+    const { pesquisaNova } = this.state;
+
+    const lista = await SearchService.run({ q: pesquisaNova, _page: pagina });
+
+    this.setState({ lista, _page: pagina });
+
+    history.push({
+      pathname: '/result',
+      search: `q=${pesquisaNova}&_page=${pagina}`,
+    });
+  };
+
   render() {
-    const { pesquisa, lista, pesquisaNova } = this.state;
+    const { pesquisa, lista, pesquisaNova, _page } = this.state;
 
     return (
       <Container>
@@ -88,10 +110,17 @@ class Result extends Component {
             </button>
           </form>
         </Pesquisa>
-        {lista.length >= 0 ? (
-          <Results>
-            <Lista lista={lista} pesquisa={pesquisa} />
-          </Results>
+        {lista.data && lista.data.length >= 0 ? (
+          <>
+            <Results>
+              <Lista lista={lista.data} pesquisa={pesquisa} />
+            </Results>
+            <Paginator
+              totalPages={lista.totalPages}
+              handleClickPagina={this.handleClickPagina}
+              page={_page}
+            />
+          </>
         ) : (
           <p>Nenhum item encontrado</p>
         )}

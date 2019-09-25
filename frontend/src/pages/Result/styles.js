@@ -68,8 +68,10 @@ export const Pesquisa = styled.div`
 
 export const Results = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  flex: 1;
+
   max-width: 80%;
   width: 100%;
 `;

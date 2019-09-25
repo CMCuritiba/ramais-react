@@ -1,106 +1,183 @@
 {
   "lista_ramais": [
     {
-      "id": 171,
-      "nome": "Divisão De Desenvolvimento De Sistemas",
-      "localizacao": "Pinéu",
-      "pavimento": "Jaula 2",
-      "funcionarios": [
+      "count": 4,
+      "data": [
         {
-          "funcionario": "ALEXANDRE ODONI",
-          "funcao": "TORA"
+          "id": 1,
+          "nome": "Diretoria Geral",
+          "localizacao": "Anexo I",
+          "pavimento": "Primeiro Andar",
+          "funcionarios": [
+            {
+              "funcionario": "DANIEL DALLAGNOL",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "MÁRCIA TEREZINHA GUEDES DOS SANTOS",
+              "funcao": "CHEFE"
+            }
+          ],
+          "ramais": [
+            {
+              "ramal": 5555,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 5556,
+              "tipo": "Chefia"
+            }
+          ]
         },
         {
-          "funcionario": "ANTONIO CARLOS PERON JUNIOR",
-          "funcao": "TORA"
+          "id": 9,
+          "nome": "Setor De Recursos Humanos",
+          "localizacao": "Anexo III",
+          "pavimento": "Térreo",
+          "funcionarios": [
+            {
+              "funcionario": "CAMILE PEREIRA DE ANDRADE",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "CRISTINA FONSECA DE JESUS",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "FABIOLA GAZAL",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "GISLAINE PACHECO",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "MARIA EDUARDA PEREIRA",
+              "funcao": "TORA"
+            }
+          ],
+          "ramais": [
+            {
+              "ramal": 4446,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4445,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4444,
+              "tipo": "Geral"
+            }
+          ]
         },
         {
-          "funcionario": "CLAUDIA APARECIDA FANTIN DE SOUZA",
-          "funcao": "TORA"
+          "id": 171,
+          "nome": "Divisão De Desenvolvimento De Sistemas",
+          "localizacao": "Pinéu",
+          "pavimento": "Jaula 2",
+          "funcionarios": [
+            {
+              "funcionario": "ALEXANDRE ODONI",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "ANTONIO CARLOS PERON JUNIOR",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "CLAUDIA APARECIDA FANTIN DE SOUZA",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "DEINI ANDERSON SARTOR PORTO",
+              "funcao": "CHEFE"
+            },
+            {
+              "funcionario": "FÁBIO DEROSSO TEIXEIRA",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "GERALDO WEHMHOFF",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "LINCOLN CÉSAR MEDINA DE OLIVEIRA",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "MÁRCIO DIAS AZEVEDO",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "RAMIRO BATISTA DA LUZ",
+              "funcao": "TORA"
+            }
+          ],
+          "ramais": [
+            {
+              "ramal": 4817,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4816,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4815,
+              "tipo": "Chefia"
+            }
+          ]
         },
         {
-          "funcionario": "FÁBIO DEROSSO TEIXEIRA",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "GERALDO WEHMHOFF",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "LINCOLN CÉSAR MEDINA DE OLIVEIRA",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "MÁRCIO DIAS AZEVEDO",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "RAMIRO BATISTA DA LUZ",
-          "funcao": "CHEFE"
-        }
-      ],
-      "ramais": [
-        {
-          "ramal": 4817,
-          "tipo": "Geral"
-        },
-        {
-          "ramal": 4816,
-          "tipo": "Geral"
-        },
-        {
-          "ramal": 4815,
-          "tipo": "Chefia"
-        }
-      ]
-    },
-    {
-      "id": 172,
-      "nome": "Divisão De Suporte Em Informática",
-      "localizacao": "Pinéu",
-      "pavimento": "Jaula 2",
-      "funcionarios": [
-        {
-          "funcionario": "CARLOS CARDOSO PINHEIRO",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "CELSO PEDROZO DE ALMEIDA",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "DIEGO FERNANDO MEREGE DE MELLO",
-          "funcao": "CHEFE"
-        },
-        {
-          "funcionario": "EWERTON CESÁRIO PERES",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "FRANZISKA ROMANI FURTADO",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "JOÃO PEDRO DA MATTA GALERA DA SILVA",
-          "funcao": "TORA"
-        },
-        {
-          "funcionario": "SANDRO TADASHI IZUMI",
-          "funcao": "TORA"
-        }
-      ],
-      "ramais": [
-        {
-          "ramal": 4813,
-          "tipo": "Geral"
-        },
-        {
-          "ramal": 4812,
-          "tipo": "Geral"
-        },
-        {
-          "ramal": 4814,
-          "tipo": "Chefia"
+          "id": 172,
+          "nome": "Divisão De Suporte Em Informática",
+          "localizacao": "Pinéu",
+          "pavimento": "Jaula 2",
+          "funcionarios": [
+            {
+              "funcionario": "CARLOS CARDOSO PINHEIRO",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "CELSO PEDROZO DE ALMEIDA",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "DIEGO FERNANDO MEREGE DE MELLO",
+              "funcao": "CHEFE"
+            },
+            {
+              "funcionario": "EWERTON CESÁRIO PERES",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "FRANZISKA ROMANI FURTADO",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "JOÃO PEDRO DA MATTA GALERA DA SILVA",
+              "funcao": "TORA"
+            },
+            {
+              "funcionario": "SANDRO TADASHI IZUMI",
+              "funcao": "TORA"
+            }
+          ],
+          "ramais": [
+            {
+              "ramal": 4813,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4812,
+              "tipo": "Geral"
+            },
+            {
+              "ramal": 4814,
+              "tipo": "Chefia"
+            }
+          ]
         }
       ]
     }

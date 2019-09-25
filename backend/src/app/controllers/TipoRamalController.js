@@ -4,7 +4,7 @@ import paginate from '../helpers/paginate';
 
 class TipoRamalController {
   async index(req, res) {
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 10;
 
     const tiposRamal = await TipoRamal.findAndCountAll(
@@ -12,7 +12,7 @@ class TipoRamalController {
         {
           attributes: ['id', 'nome'],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     );
 

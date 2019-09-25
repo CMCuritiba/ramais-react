@@ -25,5 +25,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/prop-types': 0,
     'class-methods-use-this': 0,
+    'no-underscore-dangle': 'allow',
   },
 };

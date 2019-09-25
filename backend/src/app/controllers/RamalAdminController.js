@@ -5,7 +5,7 @@ import paginate from '../helpers/paginate';
 
 class RamalAdminController {
   async index(req, res) {
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 10;
 
     const ramais = await Ramal.findAndCountAll(
@@ -19,7 +19,7 @@ class RamalAdminController {
             },
           ],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     );
 
