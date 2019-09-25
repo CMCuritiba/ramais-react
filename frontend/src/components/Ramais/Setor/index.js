@@ -1,15 +1,17 @@
 import React from 'react';
 
+import Highlight from 'react-highlighter';
 import { Container } from './styles';
 import RamalChefia from '../RamalChefia';
 import RamalGeral from '../RamalGeral';
-import Highlighter from '../../../service/Highlighter';
 
 export default function Setor({ item, pesquisa }) {
   return (
     <Container>
       <span className="setor">
-        {Highlighter.highlightText(pesquisa, item.nome)}
+        <Highlight search={pesquisa} ignoreDiacritics>
+          {item.nome}
+        </Highlight>
       </span>
       <span className="localizacao">
         {item.localizacao} - {item.pavimento}
