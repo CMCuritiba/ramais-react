@@ -31,6 +31,10 @@ export const Pesquisa = styled.div`
     height: 60px;
     width: 60px;
     margin-right: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   input {

@@ -23,6 +23,8 @@ class Result extends Component {
       lista: [],
       pesquisaNova: values.q,
     };
+
+    this.searchInput = React.createRef();
   }
 
   async componentDidMount() {
@@ -30,12 +32,13 @@ class Result extends Component {
       location: { search },
     } = this.props;
 
-    console.tron.log('MOUNT ----------------');
     const values = parse(search);
 
     const lista = await SearchService.run(values);
 
     this.setState({ lista });
+
+    this.searchInput.current.focus();
   }
 
   handleSubmit = async e => {
@@ -56,6 +59,11 @@ class Result extends Component {
     this.setState({ pesquisaNova: e.target.value });
   };
 
+  handleClickBrasao = () => {
+    const { history } = this.props;
+    history.push('/');
+  };
+
   render() {
     const { pesquisa, lista, pesquisaNova } = this.state;
 
@@ -63,8 +71,13 @@ class Result extends Component {
       <Container>
         <Pesquisa>
           <form onSubmit={this.handleSubmit}>
-            <img src={brasao} alt="Brasão CMC" />
+            <img
+              src={brasao}
+              alt="Brasão CMC"
+              onMouseUpCapture={this.handleClickBrasao}
+            />
             <input
+              ref={this.searchInput}
               type="text"
               placeholder="digite o setor, pessoa ou ramal"
               value={pesquisaNova}

@@ -12,6 +12,11 @@ class Main extends Component {
     this.state = {
       pesquisa: '',
     };
+    this.searchInput = React.createRef();
+  }
+
+  componentDidMount() {
+    this.searchInput.current.focus();
   }
 
   handleSubmit = e => {
@@ -46,6 +51,7 @@ class Main extends Component {
           <Pesquisa>
             <form onSubmit={this.handleSubmit}>
               <input
+                ref={this.searchInput}
                 type="text"
                 placeholder="digite o setor, pessoa ou ramal"
                 value={pesquisa}
