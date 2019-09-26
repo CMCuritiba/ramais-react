@@ -18,4 +18,8 @@ export const Container = styled.button`
   &:hover {
     background: ${darken(0.1, '#007bff')};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

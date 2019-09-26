@@ -9,7 +9,6 @@ import brasao from '../../assets/brasao.png';
 import Lista from '../../components/Ramais/Lista';
 import Paginator from '../../components/layout/Paginator';
 import Spinner from '../../components/layout/Spinner';
-import { throwStatement } from '@babel/types';
 
 class Result extends Component {
   constructor(props) {
