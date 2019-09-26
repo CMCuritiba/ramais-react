@@ -8,7 +8,7 @@ import paginate from '../helpers/paginate';
 
 class SetorController {
   async index(req, res) {
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 10;
 
     const setores = await Setor.findAndCountAll(
@@ -31,7 +31,7 @@ class SetorController {
           ],
           order: [[VSetor, 'id']],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     );
 

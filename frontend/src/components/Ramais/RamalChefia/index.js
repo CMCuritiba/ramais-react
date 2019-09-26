@@ -1,8 +1,8 @@
 import React from 'react';
 import { titleCase } from 'voca';
 
+import Highlight from 'react-highlighter';
 import { Container } from './styles';
-import Highlighter from '../../../service/Highlighter';
 
 export default function RamalChefia({ item, pesquisa }) {
   const { funcionarios, ramais } = item;
@@ -19,15 +19,14 @@ export default function RamalChefia({ item, pesquisa }) {
     <Container>
       {funcionariosChefia.map(funcionario => (
         <span className="nome" key={funcionario.funcionario}>
-          {Highlighter.highlightText(
-            pesquisa,
-            titleCase(`${funcionario.funcionario} (Chefia)`)
-          )}
+          <Highlight search={pesquisa} ignoreDiacritics>
+            {titleCase(`${funcionario.funcionario} (Chefia)`)}
+          </Highlight>
         </span>
       ))}
       {ramaisChefia.map(ramal => (
         <span className="ramal" key={ramal.ramal}>
-          {Highlighter.highlightText(pesquisa, String(ramal.ramal))}
+          <Highlight search={pesquisa}>{String(ramal.ramal)}</Highlight>
         </span>
       ))}
     </Container>

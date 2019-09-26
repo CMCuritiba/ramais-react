@@ -30,7 +30,7 @@ class Main extends Component {
     this.setState({ pesquisa: '' });
     history.push({
       pathname: '/result',
-      search: `q=${pesquisa}`,
+      search: `q=${pesquisa}&_page=1`,
     });
   };
 

@@ -59,7 +59,7 @@ class RamalController {
      * Jeito mais manual de fazer
      */
 
-    const { page } = req.query;
+    const { _page } = req.query;
     const pageSize = 4;
 
     const retorno = [];
@@ -85,7 +85,7 @@ class RamalController {
             },
           ],
         },
-        { page, pageSize }
+        { page: _page, pageSize }
       )
     )
       .then(setores => {
