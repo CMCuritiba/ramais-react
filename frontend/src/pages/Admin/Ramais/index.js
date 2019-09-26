@@ -11,14 +11,16 @@ class Ramais extends Component {
 
     this.state = {
       loading: false,
+      selected: 'RAMAIS',
     };
   }
   render() {
     const { history } = this.props;
+    const { selected } = this.state;
 
     return (
       <Container>
-        <Header user="alexandre.odoni" history={history} />
+        <Header user="alexandre.odoni" history={history} selected={selected} />
         <p>CRUD RAMAIS</p>
       </Container>
     );

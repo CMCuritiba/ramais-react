@@ -11,14 +11,16 @@ class Setor extends Component {
 
     this.state = {
       loading: false,
+      selected: 'SETORES',
     };
   }
   render() {
     const { history } = this.props;
+    const { selected } = this.state;
 
     return (
       <Container>
-        <Header user="alexandre.odoni" history={history} />
+        <Header user="alexandre.odoni" history={history} selected={selected} />
         <p>CRUD SETOR</p>
       </Container>
     );

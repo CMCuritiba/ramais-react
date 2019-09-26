@@ -74,4 +74,8 @@ export const Menu = styled.div`
     padding: 5px 14px;
     border-bottom: 4px solid transparent;
   }
+
+  span.selected {
+    border-bottom: 4px solid #b7d700;
+  }
 `;
