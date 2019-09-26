@@ -37,7 +37,7 @@ class SearchService {
 
     const filtradosPaginados = paginate({
       items: listaFiltrada,
-      pageSize: 1,
+      pageSize: 5,
       page: Number(_page),
     });
 
