@@ -7,12 +7,15 @@ const Button = ({ value, handleClickPagina, page, loading }) => {
     <Container
       onClick={() => handleClickPagina(value)}
       atual={1}
-      disabled={loading}
+      disabled={loading || page === value}
     >
       {value}
     </Container>
   ) : (
-    <Container onClick={() => handleClickPagina(value)} disabled={loading}>
+    <Container
+      onClick={() => handleClickPagina(value)}
+      disabled={loading || page === value}
+    >
       {value}
     </Container>
   );
