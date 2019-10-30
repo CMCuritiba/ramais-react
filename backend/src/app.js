@@ -3,12 +3,15 @@ import Youch from 'youch';
 import 'express-async-errors';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import cors from 'cors';
 import compression from 'compression';
-import bodyParser from 'body-parser';
-import winston from './config/log';
+import passport from 'passport';
 
+import winston from './config/log';
 import routes from './routes';
 import './database';
+
+require('./config/passport')(passport);
 
 class App {
   constructor() {
@@ -35,11 +38,13 @@ class App {
     this.server.use(compression());
     // configura o parser do JSON
     this.server.use(
-      bodyParser.urlencoded({
+      express.urlencoded({
         extended: true,
       })
     );
-    this.server.use(bodyParser.json());
+    this.server.use(express.json());
+    this.server.use(cors());
+    this.server.use(passport.initialize());
   }
 
   routes() {

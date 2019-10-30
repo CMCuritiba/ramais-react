@@ -7,6 +7,9 @@ import LocalizacaoController from './app/controllers/LocalizacaoController';
 import VSetorController from './app/controllers/VSetorController';
 import SetorController from './app/controllers/SetorController';
 import PavimentoController from './app/controllers/PavimentoController';
+import SessionController from './app/controllers/SessionController';
+import UsuarioConctroller from './app/controllers/UsuarioController';
+
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -22,6 +25,9 @@ routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
 routes.get('/ramais', RamalController.index);
 routes.get('/ramais-especiais', RamalEspecialController.index);
+routes.post('/sessions/', SessionController.store);
+routes.post('/usuarios/', UsuarioConctroller.store);
+routes.delete('/usuarios/', UsuarioConctroller.delete);
 
 /**
  * Rotas com autenticação
