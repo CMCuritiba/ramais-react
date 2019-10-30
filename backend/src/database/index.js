@@ -8,6 +8,7 @@ import RamalEspecial from '../app/models/RamalEspecial';
 import VSetor from '../app/models/VSetor';
 import Setor from '../app/models/Setor';
 import VFuncionario from '../app/models/VFuncionario';
+import Usuario from '../app/models/Usuario';
 
 import databaseConfig from '../config/database';
 
@@ -20,6 +21,7 @@ const models = [
   Setor,
   VFuncionario,
   RamalEspecial,
+  Usuario,
 ];
 
 class Database {
