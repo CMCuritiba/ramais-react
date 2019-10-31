@@ -11,9 +11,9 @@ module.exports = function config(passport) {
       {
         usernameField: 'username',
         server: {
-          url: 'ldap://ldap',
-          searchBase: 'ou=Usuarios,dc=pr,dc=gov,dc=br',
-          searchFilter: '(uid={{username}})',
+          url: process.env.LDAP_SERVER,
+          searchBase: process.env.LDAP_SEARCH_BASE,
+          searchFilter: process.env.LDAP_SEARCH_FILTER,
         },
       },
 
