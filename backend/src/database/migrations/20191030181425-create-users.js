@@ -40,6 +40,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('tipos_ramal');
+    return queryInterface.dropTable('usuarios');
   },
 };
