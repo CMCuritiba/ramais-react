@@ -8,9 +8,10 @@ import Usuario from '../../src/app/models/Usuario';
 
 describe('Session', () => {
   beforeAll(() => {
-    let passportStub = sinon
+    sinon
       .stub(passport, 'authenticate')
       .callsFake(async (strategy, options, callback) => {
+        console.log(options);
         await options(
           null,
           {

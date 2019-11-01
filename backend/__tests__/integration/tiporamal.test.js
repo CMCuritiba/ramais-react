@@ -26,8 +26,12 @@ describe('TipoRamal', () => {
    * deve retornar a lista de tipos de ramais cadastrados
    */
   it('deve retornar a lista de tipos de ramais cadastrados', async () => {
-    await TipoRamal.create({ id: 1, nome: 'GERAL' });
-    await TipoRamal.create({ id: 2, nome: 'CHEFIA' });
+    const insere = async () => {
+      await TipoRamal.create({ id: 1, nome: 'GERAL' });
+      await TipoRamal.create({ id: 2, nome: 'CHEFIA' });
+    };
+
+    await insere();
 
     const response = await request(app).get('/tipos-ramal');
     const { count, data } = response.body;
@@ -159,7 +163,7 @@ describe('TipoRamal', () => {
    */
   it('deve deletar um tipo de ramal', async () => {
     const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ nome: 'GERAL' });
+    const ramal = await TipoRamal.findOne({ where: { nome: 'GERAL' } });
 
     const response = await request(app)
       .delete(`/tipos-ramal/${ramal.id}`)
@@ -189,7 +193,7 @@ describe('TipoRamal', () => {
    */
   it('deve gerar erro ao deletar um tipo de ramal sem autorização', async () => {
     const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ nome: 'GERAL' });
+    const ramal = await TipoRamal.findOne({ where: { nome: 'GERAL' } });
 
     const response = await request(app)
       .delete(`/tipos-ramal/${ramal.id}`)
