@@ -6,8 +6,8 @@ import authConfig from '../../config/auth';
 import Usuario from '../models/Usuario';
 
 class SessionController {
-  store(req, res, next) {
-    const handler = passport.authenticate('ldap', async function process(
+  async store(req, res, next) {
+    const handler = await passport.authenticate('ldap', async function process(
       err,
       user,
       info
@@ -26,7 +26,9 @@ class SessionController {
         email: user.mail,
       };
 
-      const usuarioExiste = await Usuario.findOne({ username: user.uid });
+      const usuarioExiste = await Usuario.findOne({
+        where: { username: user.uid },
+      });
 
       let usuario = null;
 
@@ -50,9 +52,7 @@ class SessionController {
         return res.json({ usuario, token });
       }
 
-      return res.json({ usuario });
-
-      // return res.json({token});
+      return res.status(200).json({ usuario });
     });
 
     return handler(req, res, next);
