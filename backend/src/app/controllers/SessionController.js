@@ -9,9 +9,16 @@ class SessionController {
       user,
       info
     ) {
-      const authUser = await CreateSessionService.run(err, user, info);
-
-      return res.json(authUser);
+      try {
+        const authUser = await CreateSessionService.run(err, user, info);
+        return res.json(authUser);
+      } catch (err) {
+        if (err.message === 'Not authorized') {
+          return res.status(401).json({ error: err.message });
+        } else {
+          return res.status(500).json({ error: err.message });
+        }
+      }
     });
 
     return handler(req, res, next);

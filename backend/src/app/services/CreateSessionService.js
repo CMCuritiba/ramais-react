@@ -2,16 +2,14 @@ import jwt from 'jsonwebtoken';
 
 import Usuario from '../models/Usuario';
 import authConfig from '../../config/auth';
-import InternalServerError from './util/error/InternalServerError';
-import UnauthorizedError from './util/error/UnauthorizedError';
 
 class CreateSessionService {
   async run(err, user, info) {
     if (err) {
-      return new InternalServerError(err);
+      throw new Error(err);
     }
     if (info) {
-      return new UnauthorizedError(info);
+      throw new Error(info);
     }
 
     const usuarioObj = {
