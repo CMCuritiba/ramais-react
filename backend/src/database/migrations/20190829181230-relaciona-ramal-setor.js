@@ -5,7 +5,7 @@ module.exports = {
       references: { model: 'setores', key: 'id' },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
-      allowNull: false,
+      allowNull: true,
     });
   },
 

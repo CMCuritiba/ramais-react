@@ -34,6 +34,10 @@ routes.delete('/usuarios/', UsuarioConctroller.delete);
  */
 routes.use(authMiddleware);
 
+routes.post('/tipos-ramal', TipoRamalController.store);
+routes.put('/tipos-ramal/:id', TipoRamalController.update);
+routes.delete('/tipos-ramal/:id', TipoRamalController.delete);
+
 routes.post('/localizacoes', LocalizacaoController.store);
 routes.put('/localizacoes/:id', LocalizacaoController.update);
 routes.delete('/localizacoes/:id', LocalizacaoController.delete);

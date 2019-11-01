@@ -4,12 +4,20 @@ const view_sql =
 
 module.exports = {
   up: queryInterface => {
+    if (process.env.NODE_ENV !== 'test') {
+      return queryInterface.sequelize.query(
+        `CREATE VIEW ${view_name} AS ${view_sql}`
+      );
+    }
     return queryInterface.sequelize.query(
-      `CREATE VIEW ${view_name} AS ${view_sql}`
+      'CREATE TABLE v_setor(id INTEGER PRIMARY KEY)'
     );
   },
 
   down: queryInterface => {
-    return queryInterface.sequelize.query(`DROP VIEW ${view_name}`);
+    if (process.env.NODE_ENV !== 'test') {
+      return queryInterface.sequelize.query(`DROP VIEW ${view_name}`);
+    }
+    return queryInterface.sequelize.query('DROP TABLE v_setor');
   },
 };

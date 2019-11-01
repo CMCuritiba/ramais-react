@@ -1,6 +1,8 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
 const winston = require('winston');
 require('winston-daily-rotate-file');
-require('dotenv/config');
 const moment = require('moment');
 
 const timestamp = () => moment().format('DD/MM/YYYY HH:mm:ss');
@@ -10,7 +12,7 @@ const arquivo = new winston.transports.DailyRotateFile({
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
   maxSize: '5m',
-  maxFiles: '730d',//dois anos
+  maxFiles: '730d', // dois anos
   dirname: process.env.LOG_PATH,
   prepend: true,
   localTime: true,

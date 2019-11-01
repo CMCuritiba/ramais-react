@@ -4,6 +4,10 @@ import LdapStrategy from 'passport-ldapauth';
 
 import authConfig from './auth';
 
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
+
 module.exports = function config(passport) {
   passport.use(
     'ldap',
