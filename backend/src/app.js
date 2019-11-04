@@ -1,13 +1,13 @@
 import express from 'express';
 import Youch from 'youch';
 import 'express-async-errors';
-import morgan from 'morgan';
+// import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
 import passport from 'passport';
 
-import winston from './config/log';
+// import winston from './config/log';
 import routes from './routes';
 import './database';
 

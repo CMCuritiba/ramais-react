@@ -1,21 +1,11 @@
 import request from 'supertest';
-import jwt from 'jsonwebtoken';
 
 import app from '../../src/app';
 import factory from '../util/factories';
 import truncate from '../util/truncate';
+import token from '../util/token';
 
-import authConfig from '../../src/config/auth';
 import Localizacao from '../../src/app/models/Localizacao';
-
-const user = {
-  userId: 1,
-  userName: 'Zaca',
-};
-
-const token = jwt.sign(user, authConfig.secret, {
-  expiresIn: authConfig.expiresIn,
-});
 
 describe('Localizacao', () => {
   beforeEach(async () => {
