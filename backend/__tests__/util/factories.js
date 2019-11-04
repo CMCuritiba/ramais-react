@@ -3,6 +3,7 @@ import { factory } from 'factory-girl';
 
 import Usuario from '../../src/app/models/Usuario';
 import TipoRamal from '../../src/app/models/TipoRamal';
+import Localizacao from '../../src/app/models/TipoRamal';
 
 factory.define('Usuario', Usuario, {
   username: faker.internet.userName(),
@@ -14,6 +15,10 @@ factory.define('Usuario', Usuario, {
 
 factory.define('TipoRamal', TipoRamal, {
   nome: 'GERAL',
+});
+
+factory.define('Localizacao', Localizacao, {
+  nome: 'ANEXO I',
 });
 
 export default factory;

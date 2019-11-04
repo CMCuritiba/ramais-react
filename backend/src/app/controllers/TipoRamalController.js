@@ -1,84 +1,46 @@
-import TipoRamal from '../models/TipoRamal';
+import services from '../services/tiporamal';
 
-import paginate from '../helpers/paginate';
-
-import TipoRamalValidator from '../validators/TipoRamalValidator';
+import ResponseGenerator from './util/ResponseGenerator';
 
 class TipoRamalController {
   async index(req, res) {
     const { _page } = req.query;
-    const pageSize = 10;
 
-    const tiposRamal = await TipoRamal.findAndCountAll(
-      paginate(
-        {
-          attributes: ['id', 'nome'],
-        },
-        { page: _page, pageSize }
-      )
-    );
+    const response = await services.List.run({ _page });
 
-    return res.json({ count: tiposRamal.count, data: tiposRamal.rows });
+    return res.json(response);
   }
 
   async store(req, res) {
-    const validator = new TipoRamalValidator();
+    const { nome } = req.body;
 
-    /**
-     * Validação de dados de entrada
-     */
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
-    }
+    const response = await services.Create.run({ nome });
 
-    try {
-      const tipoRamal = await TipoRamal.create(req.body);
-      return res.json({
-        id: tipoRamal.id,
-        nome: tipoRamal.nome,
-      });
-    } catch (err) {
-      return res.status(400).json({ error: err });
-    }
+    return res.json(response);
   }
 
   async update(req, res) {
-    const validator = new TipoRamalValidator();
-
-    /**
-     * Validação de dados de entrada
-     */
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
-    }
-
-    const tipoRamal = await TipoRamal.findByPk(req.params.id);
-
-    if (!tipoRamal) {
-      return res.status(400).json({ error: 'Tipo Ramal não encontrado' });
-    }
+    const { id } = req.params;
+    const { nome } = req.body;
 
     try {
-      const { id, nome } = await tipoRamal.update(req.body);
-      return res.json({
-        id,
-        nome,
-      });
+      const response = await services.Update.run({ id, nome });
+      return res.json(response);
     } catch (err) {
-      return res.status(400).json({ error: err });
+      return ResponseGenerator.run(res, err);
     }
   }
 
   async delete(req, res) {
-    const tipoRamal = await TipoRamal.findByPk(req.params.id);
+    const { id } = req.params;
 
-    if (!tipoRamal) {
-      return res.status(400).json({ error: 'Tipo Ramal não encontrado' });
+    try {
+      const response = await services.Delete.run({ id });
+
+      return res.json(response);
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    await tipoRamal.destroy();
-
-    return res.send();
   }
 }
 

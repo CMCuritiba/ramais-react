@@ -1,6 +1,5 @@
 import Localizacao from '../models/Localizacao';
 import Pavimento from '../models/Pavimento';
-import LocalizacaoValidator from '../validators/LocalizacaoValidator';
 
 import paginate from '../helpers/paginate';
 
@@ -29,12 +28,6 @@ class LocalizacaoController {
   }
 
   async store(req, res) {
-    const validator = new LocalizacaoValidator();
-
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
-    }
-
     const { id, nome } = await Localizacao.create(req.body);
 
     return res.json({
@@ -44,12 +37,6 @@ class LocalizacaoController {
   }
 
   async update(req, res) {
-    const validator = new LocalizacaoValidator();
-
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
-    }
-
     const localizacao = await Localizacao.findByPk(req.params.id);
 
     if (!localizacao) {

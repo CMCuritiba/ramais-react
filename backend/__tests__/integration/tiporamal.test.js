@@ -27,8 +27,8 @@ describe('TipoRamal', () => {
    */
   it('deve retornar a lista de tipos de ramais cadastrados', async () => {
     const insere = async () => {
-      await TipoRamal.create({ id: 1, nome: 'GERAL' });
-      await TipoRamal.create({ id: 2, nome: 'CHEFIA' });
+      await TipoRamal.create({ nome: 'GERAL' });
+      await TipoRamal.create({ nome: 'CHEFIA' });
     };
 
     await insere();
@@ -74,7 +74,6 @@ describe('TipoRamal', () => {
       .set('authorization', `Token: ${token}`)
       .send(tipoRamal);
 
-    const { nome } = response.body;
     expect(response.body).toHaveProperty('error');
     expect(response.status).toBe(400);
   });
@@ -98,10 +97,10 @@ describe('TipoRamal', () => {
    * deve alterar um tipo de ramal
    */
   it('deve alterar um tipo de ramal', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
-      .put('/tipos-ramal/1')
+      .put(`/tipos-ramal/${tipoRamal.id}`)
       .set('authorization', `Token: ${token}`)
       .send({ nome: 'GERAL ALTERADO' });
 
@@ -115,7 +114,7 @@ describe('TipoRamal', () => {
    * deve gerar erro nome em branco ao alterar
    */
   it('deve gerar erro nome em branco ao alterar', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .put('/tipos-ramal/1')
@@ -131,7 +130,7 @@ describe('TipoRamal', () => {
    * deve gerar erro ao alterar sem autorização
    */
   it('deve gerar erro ao alterar sem autorização', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .put('/tipos-ramal/1')
@@ -146,7 +145,7 @@ describe('TipoRamal', () => {
    * deve gerar erro alterar com id inválida
    */
   it('deve gerar erro alterar com id inválida', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .put('/tipos-ramal/999')
@@ -162,11 +161,10 @@ describe('TipoRamal', () => {
    * deve deletar um tipo de ramal
    */
   it('deve deletar um tipo de ramal', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ where: { nome: 'GERAL' } });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
-      .delete(`/tipos-ramal/${ramal.id}`)
+      .delete(`/tipos-ramal/${tipoRamal.id}`)
       .set('authorization', `Token: ${token}`)
       .send();
 
@@ -177,7 +175,7 @@ describe('TipoRamal', () => {
    * deve gerar erro ao deletar um tipo de ramal com id inválida
    */
   it('deve gerar erro ao deletar um tipo de ramal com id inválida', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .delete('/tipos-ramal/999')
@@ -192,11 +190,10 @@ describe('TipoRamal', () => {
    * deve gerar erro ao deletar um tipo de ramal sem autorização
    */
   it('deve gerar erro ao deletar um tipo de ramal sem autorização', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ where: { nome: 'GERAL' } });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
-      .delete(`/tipos-ramal/${ramal.id}`)
+      .delete(`/tipos-ramal/${tipoRamal.id}`)
       .send();
 
     expect(response.body).toHaveProperty('error');
