@@ -30,6 +30,11 @@ describe('Setor', () => {
       set_nome: 'Divisão de Charchichos',
     });
 
+    await VSetor.create({
+      id: 222,
+      set_nome: 'Divisão de Sabonetismo',
+    });
+
     await Setor.create({
       localizacao_id: localizacao.id,
       pavimento_id: pavimento.id,
@@ -88,171 +93,337 @@ describe('Setor', () => {
     expect(data[0]).toMatchObject(objEsperado);
   });
 
-  // /**
-  //  * deve incluir um pavimento
-  //  */
-  // it('deve incluir um pavimento', async () => {
-  //   const pavimento = await factory.attrs('Pavimento');
+  /**
+   * deve incluir um setor
+   */
+  it('deve incluir um setor', async () => {
+    const setor = await factory.attrs('Setor', { set_id: 222 });
 
-  //   const response = await request(app)
-  //     .post('/pavimentos')
-  //     .set('authorization', `Token: ${token}`)
-  //     .send(pavimento);
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   const { nome } = response.body;
-  //   expect(response.body).toHaveProperty('id');
-  //   expect(response.body).toHaveProperty('nome');
-  //   expect(nome).toBe('I ANDAR');
-  // });
+    expect(response.status).toBe(200);
 
-  // /**
-  //  * deve gerar erro nome em branco ao incluir
-  //  */
-  // it('deve gerar erro nome em branco ao incluir', async () => {
-  //   const pavimento = { nome: null };
+    expect(response.body).toHaveProperty('id');
+    expect(response.body).toHaveProperty('set_id');
+  });
 
-  //   const response = await request(app)
-  //     .post('/pavimentos')
-  //     .set('authorization', `Token: ${token}`)
-  //     .send(pavimento);
+  /**
+   * não deve deixar incluir um setor que não existe na view v_setor
+   */
+  it('não deve deixar incluir um setor que não existe na view v_setor', async () => {
+    const setor = await factory.attrs('Setor', { set_id: 223 });
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(400);
-  // });
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  // /**
-  //  * deve gerar erro nome em branco ao incluir
-  //  */
-  // it('deve gerar erro id localizacao nulo ao incluir', async () => {
-  //   const pavimento = { localizacao_id: null };
+    expect(response.status).toBe(400);
 
-  //   const response = await request(app)
-  //     .post('/pavimentos')
-  //     .set('authorization', `Token: ${token}`)
-  //     .send(pavimento);
+    expect(response.body).toEqual({ error: 'Setor não é válido' });
+  });
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(400);
-  // });
+  /**
+   * não deve deixar incluir um setor com set_id null
+   */
+  it('não deve deixar incluir um setor com set_id null', async () => {
+    const setor = await factory.attrs('Setor', { set_id: null });
 
-  // /**
-  //  * deve gerar erro ao incluir sem autorização
-  //  */
-  // it('deve gerar erro ao incluir sem autorização', async () => {
-  //   const pavimento = { nome: null };
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   const response = await request(app)
-  //     .post('/pavimentos')
-  //     .send(pavimento);
+    expect(response.status).toBe(400);
+  });
 
-  //   const { nome } = response.body;
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(401);
-  // });
+  /**
+   * não deve deixar incluir um setor com localização inválida
+   */
+  it('não deve deixar incluir um setor com localização inválida', async () => {
+    const setor = await factory.attrs('Setor', { localizacao_id: 223 });
 
-  // /**
-  //  * deve alterar um pavimento
-  //  */
-  // it('deve alterar um pavimento', async () => {
-  //   const pavimento = await Pavimento.findOne({ where: { nome: 'I ANDAR' } });
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   const response = await request(app)
-  //     .put(`/pavimentos/${pavimento.id}`)
-  //     .set('authorization', `Token: ${token}`)
-  //     .send({
-  //       localizacao_id: pavimento.localizacao_id,
-  //       nome: 'I ANDAR ALTERADO',
-  //     });
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({ error: 'Localização não é válida' });
+  });
 
-  //   const { nome } = response.body;
-  //   expect(response.body).toHaveProperty('id');
-  //   expect(response.body).toHaveProperty('nome');
-  //   expect(nome).toBe('I ANDAR ALTERADO');
-  // });
+  /**
+   * não deve deixar incluir um setor com localização nula
+   */
+  it('não deve deixar incluir um setor com localização nula', async () => {
+    const setor = await factory.attrs('Setor', { localizacao_id: null });
 
-  // /**
-  //  * deve gerar erro nome em branco ao alterar
-  //  */
-  // it('deve gerar erro nome em branco ao alterar', async () => {
-  //   const pavimento = await factory.attrs('Pavimento');
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   const response = await request(app)
-  //     .put(`/pavimentos/${pavimento.id}`)
-  //     .set('authorization', `Token: ${token}`)
-  //     .send({ nome: null });
+    expect(response.status).toBe(400);
+  });
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(400);
-  // });
+  /**
+   * não deve deixar incluir um setor com pavimento inválido
+   */
+  it('não deve deixar incluir um setor com pavimento inválido', async () => {
+    const setor = await factory.attrs('Setor', { pavimento_id: 234 });
 
-  // /**
-  //  * deve gerar erro ao alterar sem autorização
-  //  */
-  // it('deve gerar erro ao alterar sem autorização', async () => {
-  //   const pavimento = factory.attrs('Pavimento');
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   const response = await request(app).put(`/pavimentos/${pavimento.id}`);
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({ error: 'Pavimento não é válido' });
+  });
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(401);
-  // });
+  /**
+   * não deve deixar incluir um setor com pavimento nulo
+   */
+  it('não deve deixar incluir um setor com pavimento nulo', async () => {
+    const setor = await factory.attrs('Setor', { pavimento_id: 234 });
 
-  // /**
-  //  * deve gerar erro alterar com id inválida
-  //  */
-  // it('deve gerar erro alterar com id inválida', async () => {
-  //   const response = await request(app)
-  //     .put('/localizacoes/999')
-  //     .set('authorization', `Token: ${token}`);
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(400);
-  // });
+    expect(response.status).toBe(400);
+  });
 
-  // /**
-  //  * deve deletar um pavimento
-  //  */
-  // it('deve deletar um pavimento', async () => {
-  //   const pavimento = await Pavimento.findOne({ where: { nome: 'I ANDAR' } });
+  /**
+   * não deve deixar incluir um setor já cadastrado
+   */
+  it('não deve deixar incluir um setor com pavimento inválido', async () => {
+    const setor = await factory.attrs('Setor');
 
-  //   const response = await request(app)
-  //     .delete(`/pavimentos/${pavimento.id}`)
-  //     .set('authorization', `Token: ${token}`)
-  //     .send();
+    const response = await request(app)
+      .post('/setores')
+      .set('authorization', `Token: ${token}`)
+      .send(setor);
 
-  //   expect(response.status).toBe(200);
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({ error: 'Setor já cadastrado' });
+  });
 
-  //   const pavimentoDeletado = await Pavimento.findOne({
-  //     where: { nome: 'I ANDAR' },
-  //   });
+  /**
+   * deve gerar erro ao incluir sem autorização
+   */
+  it('deve gerar erro ao incluir sem autorização', async () => {
+    const setor = await factory.attrs('Setor');
 
-  //   expect(pavimentoDeletado).toBe(null);
-  // });
+    const response = await request(app)
+      .post('/setores')
+      .send(setor);
 
-  // /**
-  //  * deve gerar erro ao deletar um pavimento com id inválida
-  //  */
-  // it('deve gerar erro ao deletar um pavimento com id inválida', async () => {
-  //   const response = await request(app)
-  //     .delete('/pavimentos/999')
-  //     .set('authorization', `Token: ${token}`)
-  //     .send();
+    expect(response.body).toHaveProperty('error');
+    expect(response.status).toBe(401);
+    expect(response.body).toEqual({ error: 'Token not provided' });
+  });
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(400);
-  // });
+  /**
+   * deve alterar um setor
+   */
+  it('deve alterar um setor', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
 
-  // /**
-  //  * deve gerar erro ao deletar um pavimento sem autorização
-  //  */
-  // it('deve gerar erro ao deletar um pavimento sem autorização', async () => {
-  //   const pavimento = await Pavimento.findOne({ where: { nome: 'I ANDAR' } });
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: setor.pavimento_id,
+        set_id: '222',
+      });
 
-  //   const response = await request(app)
-  //     .delete(`/pavimentos/${pavimento.id}`)
-  //     .send();
+    expect(response.status).toBe(200);
 
-  //   expect(response.body).toHaveProperty('error');
-  //   expect(response.status).toBe(401);
-  // });
+    expect(response.body).toHaveProperty('id');
+    expect(response.body).toHaveProperty('localizacao_id');
+    expect(response.body).toHaveProperty('pavimento_id');
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com v_setor inválido
+   */
+  it('deve gerar erro ao alterar um setor com v_setor inválido', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: setor.pavimento_id,
+        set_id: '221',
+      });
+
+    expect(response.status).toBe(400);
+
+    expect(response.body).toEqual({ error: 'Setor não é válido' });
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com localizacao inválida
+   */
+  it('deve gerar erro ao alterar um setor com localizacao inválida', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: 221,
+        pavimento_id: setor.pavimento_id,
+        set_id: setor.set_id,
+      });
+
+    expect(response.status).toBe(400);
+
+    expect(response.body).toEqual({ error: 'Localização não é válida' });
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com pavimento inválido
+   */
+  it('deve gerar erro ao alterar um setor com pavimento inválido', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: 221,
+        set_id: setor.set_id,
+      });
+
+    expect(response.status).toBe(400);
+
+    expect(response.body).toEqual({ error: 'Pavimento não é válido' });
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com v_setor nulo
+   */
+  it('deve gerar erro ao alterar um setor com v_setor nulo', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: setor.pavimento_id,
+        set_id: null,
+      });
+
+    expect(response.status).toBe(400);
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com localizacao nula
+   */
+  it('deve gerar erro ao alterar um setor com localizacao nula', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: null,
+        pavimento_id: setor.pavimento_id,
+        set_id: setor.set_id,
+      });
+
+    expect(response.status).toBe(400);
+  });
+
+  /**
+   * deve gerar erro ao alterar um setor com pavimento nulo
+   */
+  it('deve gerar erro ao alterar um setor com pavimento nulo', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: null,
+        set_id: setor.set_id,
+      });
+
+    expect(response.status).toBe(400);
+  });
+
+  /**
+   * deve gerar erro ao alterar sem autorização
+   */
+  it('deve gerar erro ao alterar sem autorização', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .put(`/setores/${setor.id}`)
+      .send({
+        localizacao_id: setor.localizacao_id,
+        pavimento_id: setor.pavimento_id,
+        set_id: setor.set_id,
+      });
+
+    expect(response.status).toBe(401);
+    expect(response.body).toEqual({ error: 'Token not provided' });
+  });
+
+  /**
+   * deve deletar um setor
+   */
+  it('deve deletar um setor', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .delete(`/setores/${setor.id}`)
+      .set('authorization', `Token: ${token}`)
+      .send();
+
+    expect(response.status).toBe(200);
+
+    const setorDeletado = await Setor.findOne({ where: { set_id: '171' } });
+
+    expect(setorDeletado).toBe(null);
+  });
+
+  /**
+   * deve gerar erro ao deletar um setor com id inválida
+   */
+  it('deve gerar erro ao deletar um setor com id inválida', async () => {
+    const response = await request(app)
+      .delete('/setores/999')
+      .set('authorization', `Token: ${token}`)
+      .send();
+
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({ error: 'Setor não encontrado' });
+  });
+
+  /**
+   * deve gerar erro ao deletar um setor sem autorização
+   */
+  it('deve gerar erro ao deletar um setor sem autorização', async () => {
+    const setor = await Setor.findOne({ where: { set_id: '171' } });
+
+    const response = await request(app)
+      .delete(`/setores/${setor.id}`)
+      .send();
+
+    expect(response.status).toBe(401);
+    expect(response.body).toEqual({ error: 'Token not provided' });
+  });
 });
