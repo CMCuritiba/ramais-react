@@ -10,6 +10,11 @@ import PavimentoController from './app/controllers/PavimentoController';
 import SessionController from './app/controllers/SessionController';
 import UsuarioConctroller from './app/controllers/UsuarioController';
 
+import tipoRamalValidator from './app/validators/TipoRamalValidator';
+import localizacaoValidator from './app/validators/LocalizacaoValidator';
+
+import sessionStoreValidator from './app/validators/SessionStore';
+
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -25,7 +30,7 @@ routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
 routes.get('/ramais', RamalController.index);
 routes.get('/ramais-especiais', RamalEspecialController.index);
-routes.post('/sessions/', SessionController.store);
+routes.post('/sessions/', sessionStoreValidator, SessionController.store);
 routes.post('/usuarios/', UsuarioConctroller.store);
 routes.delete('/usuarios/', UsuarioConctroller.delete);
 
@@ -34,12 +39,16 @@ routes.delete('/usuarios/', UsuarioConctroller.delete);
  */
 routes.use(authMiddleware);
 
-routes.post('/tipos-ramal', TipoRamalController.store);
-routes.put('/tipos-ramal/:id', TipoRamalController.update);
+routes.post('/tipos-ramal', tipoRamalValidator, TipoRamalController.store);
+routes.put('/tipos-ramal/:id', tipoRamalValidator, TipoRamalController.update);
 routes.delete('/tipos-ramal/:id', TipoRamalController.delete);
 
-routes.post('/localizacoes', LocalizacaoController.store);
-routes.put('/localizacoes/:id', LocalizacaoController.update);
+routes.post('/localizacoes', localizacaoValidator, LocalizacaoController.store);
+routes.put(
+  '/localizacoes/:id',
+  localizacaoValidator,
+  LocalizacaoController.update
+);
 routes.delete('/localizacoes/:id', LocalizacaoController.delete);
 
 routes.post('/pavimentos', PavimentoController.store);

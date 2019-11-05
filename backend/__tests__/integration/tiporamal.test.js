@@ -1,21 +1,11 @@
 import request from 'supertest';
-import jwt from 'jsonwebtoken';
 
 import app from '../../src/app';
 import factory from '../util/factories';
 import truncate from '../util/truncate';
+import token from '../util/token';
 
-import authConfig from '../../src/config/auth';
 import TipoRamal from '../../src/app/models/TipoRamal';
-
-const user = {
-  userId: 1,
-  userName: 'Zaca',
-};
-
-const token = jwt.sign(user, authConfig.secret, {
-  expiresIn: authConfig.expiresIn,
-});
 
 describe('TipoRamal', () => {
   beforeEach(async () => {
@@ -26,8 +16,12 @@ describe('TipoRamal', () => {
    * deve retornar a lista de tipos de ramais cadastrados
    */
   it('deve retornar a lista de tipos de ramais cadastrados', async () => {
-    await TipoRamal.create({ nome: 'GERAL' });
-    await TipoRamal.create({ nome: 'CHEFIA' });
+    const insere = async () => {
+      await TipoRamal.create({ nome: 'GERAL' });
+      await TipoRamal.create({ nome: 'CHEFIA' });
+    };
+
+    await insere();
 
     const response = await request(app).get('/tipos-ramal');
     const { count, data } = response.body;
@@ -70,7 +64,6 @@ describe('TipoRamal', () => {
       .set('authorization', `Token: ${token}`)
       .send(tipoRamal);
 
-    const { nome } = response.body;
     expect(response.body).toHaveProperty('error');
     expect(response.status).toBe(400);
   });
@@ -94,10 +87,10 @@ describe('TipoRamal', () => {
    * deve alterar um tipo de ramal
    */
   it('deve alterar um tipo de ramal', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
-      .put('/tipos-ramal/1')
+      .put(`/tipos-ramal/${tipoRamal.id}`)
       .set('authorization', `Token: ${token}`)
       .send({ nome: 'GERAL ALTERADO' });
 
@@ -111,7 +104,7 @@ describe('TipoRamal', () => {
    * deve gerar erro nome em branco ao alterar
    */
   it('deve gerar erro nome em branco ao alterar', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .put('/tipos-ramal/1')
@@ -127,7 +120,7 @@ describe('TipoRamal', () => {
    * deve gerar erro ao alterar sem autorização
    */
   it('deve gerar erro ao alterar sem autorização', async () => {
-    const tipoRamal = await TipoRamal.create({ id: 1, nome: 'GERAL' });
+    const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
 
     const response = await request(app)
       .put('/tipos-ramal/1')
@@ -159,10 +152,9 @@ describe('TipoRamal', () => {
    */
   it('deve deletar um tipo de ramal', async () => {
     const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ nome: 'GERAL' });
 
     const response = await request(app)
-      .delete(`/tipos-ramal/${ramal.id}`)
+      .delete(`/tipos-ramal/${tipoRamal.id}`)
       .set('authorization', `Token: ${token}`)
       .send();
 
@@ -189,10 +181,9 @@ describe('TipoRamal', () => {
    */
   it('deve gerar erro ao deletar um tipo de ramal sem autorização', async () => {
     const tipoRamal = await TipoRamal.create({ nome: 'GERAL' });
-    const ramal = await TipoRamal.findOne({ nome: 'GERAL' });
 
     const response = await request(app)
-      .delete(`/tipos-ramal/${ramal.id}`)
+      .delete(`/tipos-ramal/${tipoRamal.id}`)
       .send();
 
     expect(response.body).toHaveProperty('error');

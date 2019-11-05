@@ -1,13 +1,13 @@
 import express from 'express';
 import Youch from 'youch';
 import 'express-async-errors';
-import morgan from 'morgan';
+// import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
 import passport from 'passport';
 
-import winston from './config/log';
+// import winston from './config/log';
 import routes from './routes';
 import './database';
 
@@ -29,13 +29,13 @@ class App {
     // configura o express
     this.server.use(express.json());
     // formata o JSON retornado
-    this.server.set('json spaces', 4);
+    // this.server.set('json spaces', 4);
     // configura o log da aplicação
-    this.server.use(morgan('combined', { stream: winston.stream }));
+    // this.server.use(morgan('combined', { stream: winston.stream }));
     // configura o helmet
-    this.server.use(helmet());
+    // this.server.use(helmet());
     // configura a compressão nas requisições
-    this.server.use(compression());
+    // this.server.use(compression());
     // configura o parser do JSON
     this.server.use(
       express.urlencoded({

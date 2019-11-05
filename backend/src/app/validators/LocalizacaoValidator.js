@@ -1,26 +1,17 @@
 import * as Yup from 'yup';
 
-class LocalizacaoValidator {
-  constructor() {
-    this.init();
-    this.errors = [];
-  }
-
-  init() {
-    this.schema = Yup.object().shape({
+export default async (req, res, next) => {
+  try {
+    const schema = Yup.object().shape({
       nome: Yup.string().required(),
     });
-  }
 
-  async validate(req) {
-    try {
-      await this.schema.validate(req.body, { abortEarly: false });
-    } catch (e) {
-      this.errors = e.errors;
-      return false;
-    }
-    return true;
-  }
-}
+    await schema.validate(req.body, { abortEarly: false });
 
-export default LocalizacaoValidator;
+    return next();
+  } catch (err) {
+    return res
+      .status(400)
+      .json({ error: 'Erro de validação', messages: err.inner });
+  }
+};

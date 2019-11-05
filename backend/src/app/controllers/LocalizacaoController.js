@@ -1,76 +1,48 @@
-import Localizacao from '../models/Localizacao';
-import Pavimento from '../models/Pavimento';
-import LocalizacaoValidator from '../validators/LocalizacaoValidator';
+import ResponseGenerator from './util/ResponseGenerator';
 
-import paginate from '../helpers/paginate';
+import services from '../services/localizacao';
 
 class LocalizacaoController {
   async index(req, res) {
     const { _page } = req.query;
-    const pageSize = 10;
 
-    const localizacoes = await Localizacao.findAndCountAll(
-      paginate(
-        {
-          order: ['nome'],
-          attributes: ['id', 'nome'],
-          include: [
-            {
-              model: Pavimento,
-              attributes: ['id', 'nome'],
-            },
-          ],
-        },
-        { page: _page, pageSize }
-      )
-    );
+    const localizacoes = await services.List.run({ _page });
 
     return res.json({ count: localizacoes.count, data: localizacoes.rows });
   }
 
   async store(req, res) {
-    const validator = new LocalizacaoValidator();
+    const { nome } = req.body;
 
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
-    }
-
-    const { id, nome } = await Localizacao.create(req.body);
+    const localizacao = await services.Create.run({ nome });
 
     return res.json({
-      id,
-      nome,
+      id: localizacao.id,
+      nome: localizacao.nome,
     });
   }
 
   async update(req, res) {
-    const validator = new LocalizacaoValidator();
+    const { id } = req.params;
+    const { nome } = req.body;
 
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
+    try {
+      const localizacao = await services.Update.run({ id, nome });
+      return res.json(localizacao);
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    const localizacao = await Localizacao.findByPk(req.params.id);
-
-    if (!localizacao) {
-      return res.status(400).json({ error: 'Localização não encontrada' });
-    }
-
-    await localizacao.update(req.body);
-
-    return res.json(localizacao);
   }
 
   async delete(req, res) {
-    const localizacao = await Localizacao.findByPk(req.params.id);
+    const { id } = req.params;
 
-    if (!localizacao) {
-      return res.status(400).json({ error: 'Localização não encontrada' });
+    try {
+      const retorno = await services.Delete.run({ id });
+      return res.json(retorno);
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    await localizacao.destroy();
-
-    return res.send();
   }
 }
 

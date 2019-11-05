@@ -1,103 +1,52 @@
-import Localizacao from '../models/Localizacao';
-import Pavimento from '../models/Pavimento';
-import PavimentoValidator from '../validators/PavimentoValidator';
-
-import paginate from '../helpers/paginate';
+import services from '../services/pavimento';
+import ResponseGenerator from './util/ResponseGenerator';
 
 class PavimentoController {
   async index(req, res) {
     const { _page } = req.query;
-    const pageSize = 10;
 
-    const pavimentos = await Pavimento.findAndCountAll(
-      paginate(
-        {
-          order: ['nome'],
-          attributes: ['id', 'nome'],
-          include: [
-            {
-              model: Localizacao,
-              attributes: ['id', 'nome'],
-            },
-          ],
-        },
-        { page: _page, pageSize }
-      )
-    );
+    const pavimentos = await services.List.run({ _page });
 
     return res.json({ count: pavimentos.count, data: pavimentos.rows });
   }
 
   async store(req, res) {
-    const validator = new PavimentoValidator();
+    const { localizacao_id, nome } = req.body;
 
-    /**
-     * Validação de dados de entrada
-     */
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
+    try {
+      const pavimento = await services.Create.run({ localizacao_id, nome });
+
+      return res.json({
+        id: pavimento.id,
+        localizacao_id: pavimento.localizacao_id,
+        nome: pavimento.nome,
+      });
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    /**
-     * Verifica se localização é válida
-     */
-    const { localizacao_id } = req.body;
-
-    if (!(await Localizacao.findByPk(localizacao_id))) {
-      return res.status(400).json({ error: 'Localização inválida.' });
-    }
-
-    const { id, nome } = await Pavimento.create(req.body);
-
-    return res.json({
-      id,
-      nome,
-      localizacao_id,
-    });
   }
 
   async update(req, res) {
-    const validator = new PavimentoValidator();
+    const { id } = req.params;
+    const { localizacao_id, nome } = req.body;
 
-    /**
-     * Validação de dados de entrada
-     */
-    if (!(await validator.validate(req))) {
-      return res.status(400).json({ error: validator.errors });
+    try {
+      const pavimento = await services.Update.run({ id, localizacao_id, nome });
+      return res.json(pavimento);
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    /**
-     * Verifica se localização é válida
-     */
-    const { localizacao_id } = req.body;
-
-    if (!(await Localizacao.findByPk(localizacao_id))) {
-      return res.status(400).json({ error: 'Localização inválida.' });
-    }
-
-    /**
-     * Verifica se pavimento é válido
-     */
-    const pavimento = await Pavimento.findByPk(req.params.id);
-    if (!pavimento) {
-      return res.status(400).json({ error: 'Pavimento não encontrado' });
-    }
-
-    await pavimento.update(req.body);
-
-    return res.json(pavimento);
   }
 
   async delete(req, res) {
-    const pavimento = await Pavimento.findByPk(req.params.id);
+    const { id } = req.params;
 
-    if (!pavimento) {
-      return res.status(400).json({ error: 'Pavimento não encontrado' });
+    try {
+      const retorno = await services.Delete.run({ id });
+      return res.json(retorno);
+    } catch (err) {
+      return ResponseGenerator.run(res, err);
     }
-
-    await pavimento.destroy();
-
-    return res.send();
   }
 }
 

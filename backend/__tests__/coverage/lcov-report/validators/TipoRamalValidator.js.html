@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/21</span>
+        <span class='fraction'>6/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">37.5% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>3/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>2/7</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -63,74 +63,47 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as Yup from 'yup';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span></span></span></span></span></span></span></span>
 &nbsp;
-class TipoRamalValidator {
-  constructor() {
-    this.init();
-    this.errors = [];
-  }
-&nbsp;
-  init() {
-    this.schema = Yup.object().shape({
+export default asyn<span class="fstat-no" title="function not covered" >c </span>(req, res, next) =&gt; {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const schema = <span class="cstat-no" title="statement not covered" >Yup.object().shape({</span>
       nome: Yup.string().required(),
     });
-  }
 &nbsp;
-  async validate(req) {
-    try {
-      await this.schema.validate(req.body, { abortEarly: false });
-    } catch (e) {
-      this.errors = e.errors;
-      return false;
-    }
-    return true;
-  }
-}
+<span class="cstat-no" title="statement not covered" >    await schema.validate(req.body, { abortEarly: false });</span>
 &nbsp;
-export default TipoRamalValidator;
+<span class="cstat-no" title="statement not covered" >    return next();</span>
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    return res</span>
+      .status(400)
+      .json({ error: 'Erro de validação', messages: err.inner });
+  }
+};
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 31 2019 18:01:49 GMT-0300 (GMT-03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 04 2019 22:03:13 GMT-0200 (GMT-02:00)
 </div>
 </div>
 <script src="../prettify.js"></script>
