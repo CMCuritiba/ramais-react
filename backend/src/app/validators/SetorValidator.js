@@ -1,28 +1,19 @@
 import * as Yup from 'yup';
 
-class SetorValidator {
-  constructor() {
-    this.init();
-    this.errors = [];
-  }
-
-  init() {
-    this.schema = Yup.object().shape({
+export default async (req, res, next) => {
+  try {
+    const schema = Yup.object().shape({
       set_id: Yup.number().required(),
       localizacao_id: Yup.number().required(),
       pavimento_id: Yup.number().required(),
     });
-  }
 
-  async validate(req) {
-    try {
-      await this.schema.validate(req.body, { abortEarly: false });
-    } catch (e) {
-      this.errors = e.errors;
-      return false;
-    }
-    return true;
-  }
-}
+    await schema.validate(req.body, { abortEarly: false });
 
-export default SetorValidator;
+    return next();
+  } catch (err) {
+    return res
+      .status(400)
+      .json({ error: 'Erro de validação', messages: err.inner });
+  }
+};
