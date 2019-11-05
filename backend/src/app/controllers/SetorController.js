@@ -11,31 +11,35 @@ class SetorController {
     const { _page } = req.query;
     const pageSize = 10;
 
-    const setores = await Setor.findAndCountAll(
-      paginate(
-        {
-          attributes: ['id'],
-          include: [
-            {
-              model: VSetor,
-              attributes: ['id', 'set_nome'],
-            },
-            {
-              model: Localizacao,
-              attributes: ['id', 'nome'],
-            },
-            {
-              model: Pavimento,
-              attributes: ['id', 'nome'],
-            },
-          ],
-          order: [[VSetor, 'id']],
-        },
-        { page: _page, pageSize }
-      )
-    );
+    try {
+      const setores = await Setor.findAndCountAll(
+        paginate(
+          {
+            attributes: ['id', 'set_id'],
+            include: [
+              {
+                model: VSetor,
+                attributes: ['id', 'set_nome'],
+              },
+              {
+                model: Localizacao,
+                attributes: ['id', 'nome'],
+              },
+              {
+                model: Pavimento,
+                attributes: ['id', 'nome'],
+              },
+            ],
+            order: [[VSetor, 'id']],
+          },
+          { page: _page, pageSize }
+        )
+      );
 
-    return res.json({ count: setores.count, data: setores.rows });
+      return res.json({ count: setores.count, data: setores.rows });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async store(req, res) {
