@@ -5,7 +5,7 @@ import passport from 'passport';
 import app from '../../src/app';
 import truncate from '../util/truncate';
 import Usuario from '../../src/app/models/Usuario';
-import CreateSessionService from '../../src/app/services/CreateSessionService';
+import CreateSessionService from '../../src/app/services/session/Create';
 
 describe('Session', () => {
   const runSpy = sinon.spy(CreateSessionService, 'run');

@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-import CreateSessionService from '../services/CreateSessionService';
+import services from '../services/session';
 
 class SessionController {
   async store(req, res, next) {
@@ -10,7 +10,7 @@ class SessionController {
       info
     ) {
       try {
-        const authUser = await CreateSessionService.run(err, user, info);
+        const authUser = await services.Create.run(err, user, info);
         return res.json(authUser);
       } catch (err) {
         if (err.message === 'Not authorized') {
