@@ -9,8 +9,10 @@ import Setor from '../../src/app/models/Setor';
 import RamalEspecial from '../../src/app/models/RamalEspecial';
 import VSetor from '../../src/app/models/VSetor';
 import VFuncionario from '../../src/app/models/VFuncionario';
+import Ramal from '../../src/app/models/Ramal';
 
 factory.define('VSetor', VSetor, {
+  id: factory.sequence('VSetor.id'),
   set_nome: 'Divisão de Gambiarras',
   set_sigla: 'DG',
   set_ativo: true,
@@ -49,6 +51,8 @@ factory.define('Setor', Setor, {
   set_id: factory.assoc('VSetor', 'id'),
   localizacao_id: factory.assoc('Localizacao', 'id'),
   pavimento_id: factory.assoc('Pavimento', 'id'),
+  created_at: new Date(),
+  updated_at: new Date(),
 });
 
 factory.define('RamalEspecial', RamalEspecial, {
@@ -62,6 +66,13 @@ factory.define('RamalEspecial', RamalEspecial, {
 
 factory.define('Ramal', RamalEspecial, {
   numero: faker.random.number,
+  visivel: true,
+  setor_id: factory.assoc('Setor', 'id'),
+  tipo_ramal_id: factory.assoc('TipoRamal', 'id'),
+});
+
+factory.define('RamalAdmin', Ramal, {
+  numero: 1111,
   visivel: true,
   setor_id: factory.assoc('Setor', 'id'),
   tipo_ramal_id: factory.assoc('TipoRamal', 'id'),

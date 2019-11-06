@@ -15,6 +15,7 @@ module.exports = {
       visivel: {
         type: Sequelize.BOOLEAN,
         default: true,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,

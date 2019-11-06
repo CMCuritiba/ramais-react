@@ -32,7 +32,6 @@ routes.get('/localizacoes', LocalizacaoController.index);
 routes.get('/pavimentos', PavimentoController.index);
 routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
-routes.get('/ramais', RamalController.index);
 routes.get('/ramais-especiais', RamalEspecialController.index);
 routes.post('/sessions/', sessionStoreValidator, SessionController.store);
 routes.post('/usuarios/', UsuarioConctroller.store);
@@ -75,6 +74,7 @@ routes.post('/setores', setorValidator, SetorController.store);
 routes.put('/setores/:id', setorValidator, SetorController.update);
 routes.delete('/setores/:id', SetorController.delete);
 
+routes.get('/ramais', RamalAdminController.index);
 routes.post('/ramais', ramalValidator, RamalAdminController.store);
 routes.put('/ramais/:id', RamalAdminController.update);
 routes.delete('/ramais/:id', RamalAdminController.delete);
