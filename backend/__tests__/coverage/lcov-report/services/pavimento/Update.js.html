@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/14</span>
+        <span class='fraction'>12/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/8</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/10</span>
+        <span class='fraction'>8/10</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -72,55 +72,55 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Localizacao from '../../models/Localizacao';<span class="branch-1 cbranch-no" title="branch not covered" ></span>
 import Pavimento from '../../models/Pavimento';
 &nbsp;
 class Update {
-<span class="fstat-no" title="function not covered" >  as</span>ync run({ id, localizacao_id, nome }) {
+  async run({ id, localizacao_id, nome }) {
     /**
      * Verifica se localização é válida
      */
-<span class="cstat-no" title="statement not covered" >    if (!(await Localizacao.findByPk(localizacao_id))) {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!(await Localizacao.findByPk(localizacao_id))) {
 <span class="cstat-no" title="statement not covered" >      throw new Error('400:Localizacao inválida');</span>
     }
 &nbsp;
     /**
      * Verifica se pavimento é válido
      */
-    const pavimento = <span class="cstat-no" title="statement not covered" >await Pavimento.findByPk(id);</span>
-<span class="cstat-no" title="statement not covered" >    if (!pavimento) {</span>
+    const pavimento = await Pavimento.findByPk(id);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!pavimento) {
 <span class="cstat-no" title="statement not covered" >      throw new Error('400:Pavimento não encontrado.');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await pavimento.update({ id, localizacao_id, nome });</span>
+    await pavimento.update({ id, localizacao_id, nome });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return pavimento;</span>
+    return pavimento;
   }
 }
 export default new Update();
@@ -130,7 +130,7 @@ export default new Update();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 05 2019 16:22:12 GMT-0200 (GMT-02:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Nov 06 2019 11:57:51 GMT-0200 (GMT-02:00)
 </div>
 </div>
 <script src="../../prettify.js"></script>

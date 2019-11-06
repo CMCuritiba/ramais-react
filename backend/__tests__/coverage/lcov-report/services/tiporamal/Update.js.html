@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">35.71% </span>
+        <span class="strong">78.57% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/14</span>
+        <span class='fraction'>11/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/8</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">18.18% </span>
+        <span class="strong">72.73% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/11</span>
+        <span class='fraction'>8/11</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -73,50 +73,50 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import TipoRamal from '../../models/TipoRamal';<span class="branch-1 cbranch-no" title="branch not covered" ></span>
 &nbsp;
 class Update {
-<span class="fstat-no" title="function not covered" >  as</span>ync run({ id, nome }) {
-<span class="cstat-no" title="statement not covered" >    if (!id) {</span>
+  async run({ id, nome }) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!id) {
 <span class="cstat-no" title="statement not covered" >      throw new Error('400:Parâmetro ID não fornecido');</span>
     }
 &nbsp;
-    const tipoRamal = <span class="cstat-no" title="statement not covered" >await TipoRamal.findByPk(id);</span>
+    const tipoRamal = await TipoRamal.findByPk(id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!tipoRamal) {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!tipoRamal) {
 <span class="cstat-no" title="statement not covered" >      throw new Error('400:Tipo Ramal não encontrado.');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      await tipoRamal.update({ nome });</span>
-<span class="cstat-no" title="statement not covered" >      return {</span>
+    try {
+      await tipoRamal.update({ nome });
+      return {
         id,
         nome,
       };
@@ -133,7 +133,7 @@ export default new Update();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 05 2019 16:22:12 GMT-0200 (GMT-02:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Nov 06 2019 11:57:51 GMT-0200 (GMT-02:00)
 </div>
 </div>
 <script src="../../prettify.js"></script>

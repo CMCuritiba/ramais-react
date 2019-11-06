@@ -144,7 +144,10 @@ describe('Setor', () => {
    * não deve deixar incluir um setor com localização inválida
    */
   it('não deve deixar incluir um setor com localização inválida', async () => {
-    const setor = await factory.attrs('Setor', { localizacao_id: 223 });
+    const setor = await factory.attrs('Setor', {
+      set_id: 171,
+      localizacao_id: 223,
+    });
 
     const response = await request(app)
       .post('/setores')
@@ -173,7 +176,10 @@ describe('Setor', () => {
    * não deve deixar incluir um setor com pavimento inválido
    */
   it('não deve deixar incluir um setor com pavimento inválido', async () => {
-    const setor = await factory.attrs('Setor', { pavimento_id: 234 });
+    const setor = await factory.attrs('Setor', {
+      set_id: 171,
+      pavimento_id: 234,
+    });
 
     const response = await request(app)
       .post('/setores')
@@ -201,8 +207,8 @@ describe('Setor', () => {
   /**
    * não deve deixar incluir um setor já cadastrado
    */
-  it('não deve deixar incluir um setor com pavimento inválido', async () => {
-    const setor = await factory.attrs('Setor');
+  it('não deve deixar incluir um setor já cadastrado', async () => {
+    const setor = await factory.attrs('Setor', { set_id: 171 });
 
     const response = await request(app)
       .post('/setores')

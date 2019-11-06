@@ -1,18 +1,10 @@
-import Setor from '../models/Setor';
-import VSetor from '../models/VSetor';
-import Localizacao from '../models/Localizacao';
-import Pavimento from '../models/Pavimento';
-import SetorValidator from '../validators/SetorValidator';
 import ResponseGenerator from './util/ResponseGenerator';
-
-import paginate from '../helpers/paginate';
 
 import services from '../services/setor';
 
 class SetorController {
   async index(req, res) {
     const { _page } = req.query;
-    const pageSize = 10;
 
     const setores = await services.List.run({ _page });
 
