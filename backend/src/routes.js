@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import RamalAdminController from './app/controllers/RamalAdminController';
 import RamalController from './app/controllers/RamalController';
 import RamalEspecialController from './app/controllers/RamalEspecialController';
 import TipoRamalController from './app/controllers/TipoRamalController';
@@ -12,8 +13,11 @@ import UsuarioConctroller from './app/controllers/UsuarioController';
 
 import tipoRamalValidator from './app/validators/TipoRamalValidator';
 import localizacaoValidator from './app/validators/LocalizacaoValidator';
-
 import sessionStoreValidator from './app/validators/SessionStore';
+import setorValidator from './app/validators/SetorValidator';
+import ramalEspecialValidator from './app/validators/RamalEspecialValidator';
+import pavimentoValidator from './app/validators/PavimentoValidator';
+import ramalValidator from './app/validators/RamalValidator';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -28,7 +32,6 @@ routes.get('/localizacoes', LocalizacaoController.index);
 routes.get('/pavimentos', PavimentoController.index);
 routes.get('/vsetores', VSetorController.index);
 routes.get('/setores', SetorController.index);
-routes.get('/ramais', RamalController.index);
 routes.get('/ramais-especiais', RamalEspecialController.index);
 routes.post('/sessions/', sessionStoreValidator, SessionController.store);
 routes.post('/usuarios/', UsuarioConctroller.store);
@@ -51,20 +54,29 @@ routes.put(
 );
 routes.delete('/localizacoes/:id', LocalizacaoController.delete);
 
-routes.post('/pavimentos', PavimentoController.store);
-routes.put('/pavimentos/:id', PavimentoController.update);
+routes.post('/pavimentos', pavimentoValidator, PavimentoController.store);
+routes.put('/pavimentos/:id', pavimentoValidator, PavimentoController.update);
 routes.delete('/pavimentos/:id', PavimentoController.delete);
 
-routes.post('/ramais-especiais', RamalEspecialController.store);
-routes.put('/ramais-especiais/:id', RamalEspecialController.update);
+routes.post(
+  '/ramais-especiais',
+  ramalEspecialValidator,
+  RamalEspecialController.store
+);
+routes.put(
+  '/ramais-especiais/:id',
+  ramalEspecialValidator,
+  RamalEspecialController.update
+);
 routes.delete('/ramais-especiais/:id', RamalEspecialController.delete);
 
-routes.post('/setores', SetorController.store);
-routes.put('/setores/:id', SetorController.update);
+routes.post('/setores', setorValidator, SetorController.store);
+routes.put('/setores/:id', setorValidator, SetorController.update);
 routes.delete('/setores/:id', SetorController.delete);
 
-routes.post('/ramais', RamalController.store);
-routes.put('/ramais/:id', RamalController.update);
-routes.delete('/ramais/:id', RamalController.delete);
+routes.get('/ramais', RamalAdminController.index);
+routes.post('/ramais', ramalValidator, RamalAdminController.store);
+routes.put('/ramais/:id', RamalAdminController.update);
+routes.delete('/ramais/:id', RamalAdminController.delete);
 
 export default routes;

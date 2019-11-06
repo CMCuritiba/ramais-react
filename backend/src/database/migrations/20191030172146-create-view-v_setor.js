@@ -10,7 +10,7 @@ module.exports = {
       );
     }
     return queryInterface.sequelize.query(
-      'CREATE TABLE v_setor(id INTEGER PRIMARY KEY, set_nome TEXT NOT NULL)'
+      'CREATE TABLE v_setor(id INTEGER PRIMARY KEY AUTOINCREMENT, set_nome TEXT, set_sigla TEXT, set_ativo BOOLEAN)'
     );
   },
 

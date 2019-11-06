@@ -8,6 +8,7 @@ class Setor extends Model {
       {
         set_id: {
           type: Sequelize.INTEGER,
+          unique: true,
         },
       },
       {

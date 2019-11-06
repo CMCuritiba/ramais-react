@@ -9,7 +9,7 @@ module.exports = {
       );
     }
     return queryInterface.sequelize.query(
-      'CREATE TABLE v_cmcfuncionarios(id INTEGER PRIMARY KEY)'
+      'CREATE TABLE v_cmcfuncionarios(matricula INTEGER, pessoa INTEGER, pes_nome TEXT, funcao INTEGER, set_id INTEGER)'
     );
   },
 
