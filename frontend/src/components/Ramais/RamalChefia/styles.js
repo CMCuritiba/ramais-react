@@ -15,5 +15,6 @@ export const Container = styled.div`
   span.ramal {
     font-weight: bold;
     line-height: 30px;
+    margin-left: 20px;
   }
 `;

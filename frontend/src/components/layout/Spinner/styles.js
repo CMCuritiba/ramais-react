@@ -18,6 +18,6 @@ export const Container = styled.div`
   flex-direction: column;
   svg {
     animation: ${rotate} 2s linear infinite;
-    color: ${lighten(0.2, '#007bff')};
+    color: ${lighten(0.2, '#30666D')};
   }
 `;

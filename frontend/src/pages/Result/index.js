@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { parse } from 'query-string';
 import { MdSearch } from 'react-icons/md';
 
-import { Container, Pesquisa, Results } from './styles';
+import { Pesquisa, Results } from './styles';
 import SearchService from '../../service/SearchService';
 import brasao from '../../assets/brasao.png';
 import Lista from '../../components/Ramais/Lista';
@@ -97,7 +97,12 @@ class Result extends Component {
   renderResults = () => {
     const { pesquisa, lista, loading, _page } = this.state;
 
-    if (loading) return <Spinner />;
+    if (loading)
+      return (
+        <>
+          <Spinner />
+        </>
+      );
     if (lista.data && lista.data.length >= 0) {
       return (
         <>
@@ -112,16 +117,15 @@ class Result extends Component {
           />
         </>
       );
-    } else {
-      return <p>Nenhum item encontrado</p>;
     }
+    return <p>Nenhum item encontrado</p>;
   };
 
   render() {
     const { pesquisaNova, loading } = this.state;
 
     return (
-      <Container>
+      <>
         <Pesquisa>
           <form onSubmit={this.handleSubmit}>
             <img
@@ -142,7 +146,7 @@ class Result extends Component {
           </form>
         </Pesquisa>
         {this.renderResults()}
-      </Container>
+      </>
     );
   }
 }

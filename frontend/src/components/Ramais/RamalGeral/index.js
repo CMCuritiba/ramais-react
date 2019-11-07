@@ -12,7 +12,7 @@ export default function Ramal({ item, pesquisa }) {
   });
 
   const ramaisGeral = ramais.filter(ramal => {
-    return ramal.tipo === 'Geral';
+    return ramal.tipo === 'GERAL';
   });
 
   const montaFuncionarios = () => {

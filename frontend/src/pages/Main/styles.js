@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  background-color: #fff;
-  height: 100vh;
-  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.3);
-`;
-
 export const Header = styled.div`
   display: flex;
   align-items: center;
@@ -58,7 +47,7 @@ export const Pesquisa = styled.div`
   button {
     display: flex;
 
-    background: #007bff;
+    background: #30666d;
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -67,7 +56,7 @@ export const Pesquisa = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.1, '#007bff')};
+      background: ${darken(0.1, '#30666D')};
     }
   }
 `;

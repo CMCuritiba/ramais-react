@@ -12,7 +12,7 @@ export default function RamalChefia({ item, pesquisa }) {
   });
 
   const ramaisChefia = ramais.filter(ramal => {
-    return ramal.tipo === 'Chefia';
+    return ramal.tipo === 'CHEFIA';
   });
 
   return (

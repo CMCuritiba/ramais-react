@@ -3,7 +3,7 @@ import { MdSearch } from 'react-icons/md';
 import { GoFilePdf } from 'react-icons/go';
 import { withRouter } from 'react-router-dom';
 
-import { Container, Pesquisa, Header, Footer, Content } from './styles';
+import { Pesquisa, Header, Footer, Content } from './styles';
 import brasao from '../../assets/brasao.png';
 
 class Main extends Component {
@@ -42,7 +42,7 @@ class Main extends Component {
     const { pesquisa } = this.state;
 
     return (
-      <Container>
+      <>
         <Content>
           <Header>
             <img src={brasao} alt="Brasão CMC" />
@@ -69,7 +69,7 @@ class Main extends Component {
             <GoFilePdf size={20} />
           </span>
         </Footer>
-      </Container>
+      </>
     );
   }
 }

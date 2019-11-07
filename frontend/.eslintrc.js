@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'prettier/react'],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
@@ -25,6 +25,13 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/prop-types': 0,
     'class-methods-use-this': 0,
-    'no-underscore-dangle': 'allow',
+    'no-underscore-dangle': 0,
+  },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathSuffix: 'src',
+      },
+    },
   },
 };
