@@ -1,8 +1,22 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 import { Container, Title, Info, User, Menu } from './styles';
 
-export default function Header({ user, history, selected }) {
+import { signOut } from '~/store/modules/auth/actions';
+
+import history from '~/service/history';
+
+export default function Header({ selected = 'PESQUISA' }) {
+  const { usuario } = useSelector(state => state.auth);
+
+  const dispatch = useDispatch();
+
+  function handlePesquisaClick() {
+    history.push('/');
+  }
+
   function handleRamaisClick() {
     history.push('/admin/ramais');
   }
@@ -19,15 +33,36 @@ export default function Header({ user, history, selected }) {
     history.push('/admin/pavimentos');
   }
 
+  function handleRamaisEspeciaisClick() {
+    history.push('/admin/ramais-especiais');
+  }
+
+  function handleLogout() {
+    dispatch(signOut());
+  }
+
   return (
     <Container>
       <Info>
         <Title>admin Ramais</Title>
         <User>
-          <div>usuário logado: {user}</div>
+          <div>{usuario.username}</div>
+          <button
+            type="button"
+            className="button-exit"
+            onClick={() => handleLogout()}
+          >
+            <FaSignOutAlt size={18} />
+          </button>
         </User>
       </Info>
       <Menu>
+        <span
+          onClick={() => handlePesquisaClick()}
+          className={selected === 'PESQUISA' ? 'selected' : null}
+        >
+          Pesquisa
+        </span>
         <span
           onClick={() => handleRamaisClick()}
           className={selected === 'RAMAIS' ? 'selected' : null}
@@ -51,6 +86,12 @@ export default function Header({ user, history, selected }) {
           className={selected === 'PAVIMENTOS' ? 'selected' : null}
         >
           Pavimentos
+        </span>
+        <span
+          onClick={() => handleRamaisEspeciaisClick()}
+          className={selected === 'ESPECIAIS' ? 'selected' : null}
+        >
+          Ramais Especiais
         </span>
       </Menu>
     </Container>
