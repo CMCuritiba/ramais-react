@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import background from '../assets/brasao.png';
 
@@ -14,7 +15,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     min-height: 100%;
-    background-color: #d3d3d3;
+    background-image: linear-gradient(#042F3A,#30666D);
   }
 
   #root {

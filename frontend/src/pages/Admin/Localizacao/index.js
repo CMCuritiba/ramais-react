@@ -14,6 +14,7 @@ class Localizacao extends Component {
       selected: 'LOCALIZACOES',
     };
   }
+
   render() {
     const { history } = this.props;
     const { selected } = this.state;

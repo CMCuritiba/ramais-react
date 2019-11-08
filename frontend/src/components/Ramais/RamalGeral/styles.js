@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   flex: 1;
 
+  color: #ccc;
+
   span.nome {
     flex: 1;
   }
@@ -13,6 +15,6 @@ export const Container = styled.div`
   span.ramal {
     font-weight: bold;
     line-height: 30px;
-    margin-left: 5px;
+    margin-left: 20px;
   }
 `;

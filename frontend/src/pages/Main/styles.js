@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  background-color: #fff;
-  height: 100vh;
-  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.3);
-`;
-
 export const Header = styled.div`
   display: flex;
   align-items: center;
@@ -27,6 +16,7 @@ export const Header = styled.div`
   h1 {
     font-size: 28px;
     padding: 20px;
+    color: #eee;
   }
 `;
 
@@ -47,27 +37,37 @@ export const Pesquisa = styled.div`
   input {
     display: flex;
     flex: 1;
+    align-self: center;
 
-    line-height: 18px;
-    border: 1px solid #ddd;
+    background: rgba(0, 0, 0, 0.2);
+    border: 0;
     border-radius: 4px;
-    color: #666;
-    padding: 10px 20px;
+    height: 64px;
+    padding: 0 15px;
+    color: #fff;
+    margin: 0 0 10px;
+    font-size: 18px;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
 
   button {
     display: flex;
 
-    background: #007bff;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     border: 0;
     border-radius: 4px;
-    padding: 10px 12px;
+    padding: 20px;
+    margin: 0 0 10px;
     margin-left: 4px;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.1, '#007bff')};
+      background: ${darken(0.15, '#30666D')};
     }
   }
 `;

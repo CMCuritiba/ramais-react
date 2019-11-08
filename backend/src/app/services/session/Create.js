@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 
-import Usuario from '../models/Usuario';
-import authConfig from '../../config/auth';
+import Usuario from '../../models/Usuario';
+import authConfig from '../../../config/auth';
 
-class CreateSessionService {
+class Create {
   async run(err, user, info) {
     if (err) {
       throw new Error(err);
@@ -49,4 +49,4 @@ class CreateSessionService {
   }
 }
 
-export default new CreateSessionService();
+export default new Create();

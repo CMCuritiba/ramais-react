@@ -7,7 +7,7 @@ export const Container = styled.button`
   justify-content: center;
 
   background-color: ${props =>
-    props.atual ? darken(0.1, '#007bff') : '#007bff'};
+    props.atual ? darken(0.1, '#30666D') : '#30666D'};
   color: #fff;
   border: 0;
   border-radius: 4px;
@@ -16,7 +16,7 @@ export const Container = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: ${darken(0.1, '#007bff')};
+    background: ${darken(0.1, '#30666D')};
   }
 
   &:disabled {

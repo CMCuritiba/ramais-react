@@ -8,11 +8,12 @@ class SearchService {
     if (!q) {
       throw new Error('Não foi fornecida pesquisa');
     }
-    // console.tron.log(`Pesquisando por: ${q} na página ${_page}`);
 
-    const lista = await api.get(`lista_ramais`);
+    const lista = await api.get('/');
 
-    const listaFiltrada = lista.data[0].data.filter(
+    console.tron.log(lista);
+
+    const listaFiltrada = lista.data.data.filter(
       ({ ramais, funcionarios, nome }) => {
         if (
           funcionarios.some(funcionario =>
