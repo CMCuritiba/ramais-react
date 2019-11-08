@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   flex: 1;
 
+  color: #ccc;
+
   span.nome {
     flex: 1;
   }

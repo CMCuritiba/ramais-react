@@ -15,17 +15,17 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   /* background: ${lighten(0.7, '#393434')}; */
-  background: ${lighten(0.5, '#30666D')};
+  background: rgba(0, 0, 0, 0.2);
   font-size: 14px;
 
   .setor {
-    color: #393434;
+    color: #eee;
     font-size: 18px;
     font-weight: bold;
     line-height: 20px;
   }
   .localizacao {
-    color: ${lighten(0.3, '#393434')};
+    color: #ccc;
     font-size: 14px;
   }
 `;

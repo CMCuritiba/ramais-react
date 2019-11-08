@@ -23,6 +23,4 @@ const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
-console.tron.log('STORE CRIADA');
-
 export { store, persistor };

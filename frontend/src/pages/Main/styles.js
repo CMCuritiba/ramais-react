@@ -16,6 +16,7 @@ export const Header = styled.div`
   h1 {
     font-size: 28px;
     padding: 20px;
+    color: #eee;
   }
 `;
 
@@ -36,27 +37,37 @@ export const Pesquisa = styled.div`
   input {
     display: flex;
     flex: 1;
+    align-self: center;
 
-    line-height: 18px;
-    border: 1px solid #ddd;
+    background: rgba(0, 0, 0, 0.2);
+    border: 0;
     border-radius: 4px;
-    color: #666;
-    padding: 10px 20px;
+    height: 64px;
+    padding: 0 15px;
+    color: #fff;
+    margin: 0 0 10px;
+    font-size: 18px;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
 
   button {
     display: flex;
 
-    background: #30666d;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     border: 0;
     border-radius: 4px;
-    padding: 10px 12px;
+    padding: 20px;
+    margin: 0 0 10px;
     margin-left: 4px;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.1, '#30666D')};
+      background: ${darken(0.15, '#30666D')};
     }
   }
 `;
