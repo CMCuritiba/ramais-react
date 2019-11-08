@@ -64,6 +64,10 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 
+  height: 100%;
   width: 100%;
 `;
