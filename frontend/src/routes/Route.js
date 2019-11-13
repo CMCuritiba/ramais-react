@@ -8,8 +8,8 @@ import DefaultLayout from '../pages/_layouts/default';
 import { store } from '~/store';
 
 export default function RouteWrapper(
-  { isPrivate, component: Component },
-  rest
+  { isPrivate, selected, component: Component },
+  ...rest
 ) {
   const { signed } = store.getState().auth;
 
@@ -27,7 +27,7 @@ export default function RouteWrapper(
     <Route
       {...rest}
       render={props => (
-        <Layout>
+        <Layout selected={selected}>
           <Component {...props} />
         </Layout>
       )}

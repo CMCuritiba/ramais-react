@@ -5,10 +5,10 @@ import Header from '~/components/layout/admin/Header';
 
 import { Wrapper, Content } from './styles';
 
-export default function AuthLayout({ children }) {
+export default function AuthLayout({ children, selected }) {
   return (
     <Wrapper>
-      <Header />
+      <Header selected={selected} />
       <Content>{children}</Content>
     </Wrapper>
   );
