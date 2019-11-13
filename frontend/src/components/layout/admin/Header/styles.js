@@ -12,7 +12,7 @@ export const Container = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 30px;
-  background-color: #0776a6;
+  background-color: #30666d;
   width: 100%;
   max-height: 80px;
   height: 100%;
@@ -47,13 +47,29 @@ export const Title = styled.div`
 
 export const User = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  /* flex-direction: column; */
+  align-items: center;
   justify-content: center;
-  flex: 1;
+  /* flex: 1; */
 
   font-size: 16px;
-  color: ${darken(0.1, '#0776a6')};
+  color: #ddd;
+
+  button.button-exit {
+    justify-content: center;
+
+    height: 20px;
+    background: none;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 4px;
+
+    &:hover {
+      background: none;
+    }
+  }
 `;
 
 export const Menu = styled.div`

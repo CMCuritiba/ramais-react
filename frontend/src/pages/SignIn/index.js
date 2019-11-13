@@ -7,6 +7,8 @@ import brasao from '../../assets/brasao.png';
 import { signInRequest } from '~/store/modules/auth/actions';
 import { Container, Header } from './styles';
 
+import history from '~/service/history';
+
 const schema = Yup.object().shape({
   username: Yup.string().required('O usuário é obrigatório'),
   password: Yup.string().required('A senha é obrigatória'),
@@ -20,10 +22,18 @@ export default function Signin() {
     dispatch(signInRequest(username, password));
   }
 
+  function handleClickBrasao() {
+    history.push('/');
+  }
+
   return (
     <Container>
       <Header>
-        <img src={brasao} alt="Brasão CMC" />
+        <img
+          src={brasao}
+          alt="Brasão CMC"
+          onMouseUpCapture={handleClickBrasao}
+        />
         <h1>Ramais CMC</h1>
       </Header>
       <Form schema={schema} onSubmit={handleSubmit}>

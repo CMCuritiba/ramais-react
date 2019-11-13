@@ -11,8 +11,6 @@ class SearchService {
 
     const lista = await api.get('/');
 
-    console.tron.log(lista);
-
     const listaFiltrada = lista.data.data.filter(
       ({ ramais, funcionarios, nome }) => {
         if (

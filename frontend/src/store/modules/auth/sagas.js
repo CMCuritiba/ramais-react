@@ -18,11 +18,17 @@ export function* signIn({ payload }) {
 
     const { token, usuario } = response.data;
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    if (!token) {
+      toast.error('Você não tem permissão de admin.');
+      yield put(signFailure());
+      history.push('/signin');
+    } else {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(token, usuario));
+      yield put(signInSuccess(token, usuario));
 
-    history.push('/');
+      history.push('/');
+    }
   } catch (err) {
     toast.error('Falha na autenticação, verifique seus dados.');
     yield put(signFailure());

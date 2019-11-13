@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
-  max-width: 415px;
+
+  /* max-width: 415px; */
   text-align: center;
 
   span {
@@ -15,7 +21,7 @@ export const Container = styled.div`
   }
 
   form {
-    /* display: flex; */
+    max-width: 415px;
     flex-direction: column;
   }
 
@@ -45,6 +51,7 @@ export const Header = styled.div`
   img {
     height: 100px;
     width: 100px;
+    cursor: pointer;
   }
 
   h1 {

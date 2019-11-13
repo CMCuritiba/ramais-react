@@ -48,6 +48,6 @@ describe('Auth reducer', () => {
     expect(state.loading).toBe(false);
     expect(state.signed).toBe(false);
     expect(state.token).toBe(null);
-    expect(state.usuario).toBe(null);
+    expect(state.usuario).toBe(false);
   });
 });
